@@ -1,0 +1,35 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts:
+  - caption: Getting started
+    chapters:
+    - file: intro/install
+
+  - caption: Using BlueBird
+    chapters:
+    - file: guides/digital-twin
+    - file: guides/agents
+
+  - caption: Air Traffic Control  
+    chapters:
+    - file: atc/intro
+    - file: atc/commands
+
+  - caption: Command reference
+    chapters:
+    - file: reference/bluebird-server
+    - file: reference/aviary
+
+  - caption: Developer documentation
+    chapters:
+    - file: dev/bluebird-server
+    - file: dev/aviary
+
+  - caption: Community
+    chapters:
+    - file: community/about
+    - file: community/meetups  
