@@ -8,7 +8,7 @@ pydodo commands taken from [pydodo specification](https://github.com/alan-turing
 | Change flight level | Level by (descent only) | N/A | "BAW123 descend FL100 level by OCK" | ATC document suggests to use unmodified commands in first instance |
 | Change flight level | When ready (descent only) | N/A |  | |
 | Change flight level | Be above/Be below | N/A | "BAW123 descend FL100, be FL120 or below at OCK" | |
-| Change flight level | Rate of climb/descent| `pydodo.change_altitude ("BAW123",flight_level=100,vertical_speed=1500)`  | "BAW123 descend FL100, rate of descent 1500 feet per minute or greater" |Optional `vertical_speed` argument is documented but has not been demonstrated to work. Cannot confirm units are in feet/minute - cannot specify "or greater"|
+| Change flight level | Rate of climb/descent| `pydodo.change_altitude ("BAW123",flight_level=100, vertical_speed=1500)`  | "BAW123 descend FL100, rate of descent 1500 feet per minute or greater" |Optional `vertical_speed` argument is documented but has not been demonstrated to work. Cannot confirm units are in feet/minute - cannot specify "or greater"|
 | Change flight level | Expedite | N/A |  | |
 | *** | *** | *** | *** | *** |
 | Routing instruction | None | `pydodo.direct_to_waypoint ('BAW123','DVR')` | "BAW123 route direct to DVR" | Waypoint must be specified in the aircraft's `list_route`. Unsure if this is currently functional as `list_route` does not update to reflect specified waypoint as next waypoint |
