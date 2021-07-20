@@ -269,6 +269,51 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   Usage
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sector-generation">
+     Sector generation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scenario-generation">
+     Scenario generation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scenario-translation">
+     Scenario translation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#development">
+   Development
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests">
+   Tests
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -282,15 +327,128 @@
 <p><a class="reference external" href="https://travis-ci.com/alan-turing-institute/aviary"><img alt="Build Status" src="https://travis-ci.com/project-bluebird/aviary.svg?branch=develop" /></a></p>
 <p>Aviary is an air traffic scenario generation package developed as part of the <a class="reference external" href="https://github.com/alan-turing-institute/simurgh">Simurgh</a> project. It aims to make available a large number of simple (but non-trivial) air traffic control scenarios suitable for the training of an artificial agent via reinforcement learning. The package also includes a set of evaluation metrics for measuring performance in the air traffic control challenge.</p>
 <p>Each aviary scenario consists of two parts:</p>
-<ol class="simple">
+<ol>
 <li><p>An airspace sector definition. Three elemental sector types are supported:</p>
 <ul class="simple">
 <li><p>I sector, representing a linear airway</p></li>
 <li><p>X sector, representing a pair of intersecting linear airways</p></li>
 <li><p>Y sector, representing a pair of merging airways.</p></li>
 </ul>
+<p>Each aviary scenario takes place in a sector of I, X or Y type. Later versions of aviary qill support the composition of these simple elements to form more complex sectors consistent with real-world sector parts.</p>
+<p>In addition to defining the airspace boundary, a sector includes a set of fix locations and a corresponding set of routes through the sector, where a route is defined as a sequence of fix points.</p>
+<p>Sector definitions are serialised in GeoJSON format.</p>
+</li>
+<li><p>A sequence of aircraft whose routes pass through the sector. Each aircraft is defined by the following attributes:<a id="aircraft-attributes"></a></p>
+<ul class="simple">
+<li><p>callsign</p></li>
+<li><p>aircraft type</p></li>
+<li><p>initial position</p></li>
+<li><p>arrival time relative to the scenario start time (“timedelta”)</p></li>
+<li><p>departure airport</p></li>
+<li><p>destination airport</p></li>
+<li><p>current flight level</p></li>
+<li><p>cleared flight level</p></li>
+<li><p>requested flight level</p></li>
+<li><p>route (sequence of fix points crossing the sector)</p></li>
+</ul>
+<p>Aircraft definitions are serialised in JSON format.</p>
 </li>
 </ol>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Install from the repository root directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install .
+</pre></div>
+</div>
+<p>Developer install:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -e .
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Aviary supports:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#sector-generation">Generation of I, X, Y sector definitions</a> in GeoJSON format</p></li>
+<li><p><a class="reference external" href="#scenario-generation">Generation of aircraft definitions</a> in JSON format</p></li>
+<li><p><a class="reference external" href="#scenario-translation">Translation</a> between aviary and <a class="reference external" href="https://github.com/alan-turing-institute/bluesky">BlueSky</a> scenario formats</p></li>
+</ul>
+<!--  - Calculation of ATC performance metrics. -->
+<div class="section" id="sector-generation">
+<h3>Sector generation<a class="headerlink" href="#sector-generation" title="Permalink to this headline">¶</a></h3>
+<p>Run the <code class="docutils literal notranslate"><span class="pre">sector_geojson.py</span></code> script passing the following command line arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sector_type</span></code> I, X or Y</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sector_name</span></code> Any string</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">origin</span></code> Longitude/latitude coordinates separated by a comma</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lower_limit</span></code> Sector lower limit flight level</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upper_limit</span></code> Sector upper limit flight level</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filename_prefix</span></code> Output filename prefix (optional)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_path</span></code> Output file path (optional)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sector_geojson</span><span class="o">.</span><span class="n">py</span>  <span class="o">--</span><span class="n">sector_type</span><span class="o">=</span><span class="n">X</span> <span class="o">--</span><span class="n">sector_name</span><span class="o">=</span><span class="s2">&quot;X-sector&quot;</span> <span class="o">--</span><span class="n">origin</span><span class="o">=-</span><span class="mf">0.1275</span><span class="p">,</span><span class="mf">51.5</span> <span class="o">--</span><span class="n">lower_limit</span><span class="o">=</span><span class="mi">140</span> <span class="o">--</span><span class="n">upper_limit</span><span class="o">=</span><span class="mi">400</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scenario-generation">
+<h3>Scenario generation<a class="headerlink" href="#scenario-generation" title="Permalink to this headline">¶</a></h3>
+<p>To generate a simple overflier-climber scenario, run the <code class="docutils literal notranslate"><span class="pre">overflier_climber.py</span></code> script, passing the following command line arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cruise_speed</span></code> A CSV file containing aircraft cruise speed by aircraft type and flight level</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cruise_speed_index</span></code> The name of the index column in the cruise speed CSV file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">climb</span> <span class="pre">time</span></code> A CSV file containing cumulative aircraft climb time by aircraft type and flight level</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">climb_time_index</span></code> The name of the index column in the climb time CSV file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">downtrack_distance</span></code> A CSV file containing aircraft downtrack distance by aircraft type and flight level</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">downtrack_distance_index</span></code> The name of the index column in the downtrack distance CSV file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sector_type</span></code> I, X or Y (defaults to “I”)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aircraft_types</span></code> A comma-separated list of aircraft types to appear in the scenario</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flight_levels</span></code> A comma-separated list of flight levels to appear in the scenario</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thinking_time</span></code> A float, specifying the “thinking time” in seconds; this extends the scenario to make climbing ahead of the overflier a possibly optimal solution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seed</span></code> A random seed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filename_prefix</span></code> Output filename prefix (optional)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_path</span></code> Output file path (optional)</p></li>
+</ul>
+<p><strong>Note:</strong> to enable any user to generate overflier-climber scenarios, approximate CSV lookup tables for the aircraft cruise speed, climb time and downtrack distance are provided in the <code class="docutils literal notranslate"><span class="pre">aviary/resources</span></code> directory. Three aircraft types are included (A320, A343 and DH8D), each of which may be found in the BlueSky simulator’s OpenAP aircraft performance model. These tables contain simple approximations, obtained by linear (in the case of cruise speed) and cubic spline (in the case of climb time and downtrack distance) interpolation, and should <strong>not</strong> be supposed to accurately represent aircraft performance at all levels. In particular, the climb time and downtrack distance approximations for the A320 &amp; A343 aircraft types are <strong>not</strong> accurate above FL ~300.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">overflier_climber</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">cruise_speed</span><span class="o">=</span><span class="n">cruise_speed</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="n">cruise_speed_index</span><span class="o">=</span><span class="n">FL</span> <span class="o">--</span><span class="n">climb_time</span><span class="o">=</span><span class="n">climb_time</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="n">climb_time_index</span><span class="o">=</span><span class="n">FL</span> <span class="o">--</span><span class="n">downtrack_distance</span><span class="o">=</span><span class="n">downtrack_distances</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="n">downtrack_distance_index</span><span class="o">=</span><span class="n">FL</span> <span class="o">--</span><span class="n">sector_type</span><span class="o">=</span><span class="n">I</span> <span class="o">--</span><span class="n">aircraft_types</span><span class="o">=</span><span class="n">B77W</span><span class="p">,</span><span class="n">A320</span><span class="p">,</span><span class="n">A346</span> <span class="o">--</span><span class="n">flight_levels</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="mi">360</span><span class="p">,</span><span class="mi">400</span> <span class="o">--</span><span class="n">thinking_time</span><span class="o">=</span><span class="mi">60</span> <span class="o">--</span><span class="n">seed</span><span class="o">=</span><span class="mi">22</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scenario-translation">
+<h3>Scenario translation<a class="headerlink" href="#scenario-translation" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/alan-turing-institute/bluesky">BlueSky</a> is an open source air traffic simulator. To convert an aviary scenario into the format expected by BlueSky, run the <code class="docutils literal notranslate"><span class="pre">parse_scenario.py</span></code> script passing the following command line arguments:</p>
+<ul class="simple">
+<li><p>sector_geojson Full path to an aviary GeoJSON sector definition file</p></li>
+<li><p>scenario_json Full path to an aviary JSON scenario file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_path</span></code> Output file path (optional)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span><span class="o">-</span><span class="n">scenario</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">sector_geojson</span><span class="o">=</span><span class="n">I</span><span class="o">-</span><span class="n">sector</span><span class="o">.</span><span class="n">geojson</span> <span class="o">--</span><span class="n">scenario_json</span><span class="o">=</span><span class="n">overflier</span><span class="o">-</span><span class="n">climber</span><span class="o">-</span><span class="mf">22.</span><span class="n">json</span>
+</pre></div>
+</div>
+<!-- ### Performance metrics (NYI) -->
+</div>
+</div>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<p>Scenario generation algorithms are implemented in aviary as <a class="reference external" href="https://en.wikipedia.org/wiki/Strategy_pattern">strategies</a> in the context of the <code class="docutils literal notranslate"><span class="pre">ScenarioGenerator</span></code> class. The workflow for adding a new algorithms is:</p>
+<ul class="simple">
+<li><p>Create a subclass of <code class="docutils literal notranslate"><span class="pre">ScenarioAlgorithm</span></code> and implement the <code class="docutils literal notranslate"><span class="pre">aircraft_generator</span></code> method. On each call, this method must yield a dictionary representing a new aircraft in the scenario, containing all of the <a class="reference external" href="#aircraft-attributes">attributes listed above</a>.</p></li>
+<li><p>Optionally, add a python script (in the <code class="docutils literal notranslate"><span class="pre">scripts/</span></code> directory) to enable scenario generation from the command line. The existing script <code class="docutils literal notranslate"><span class="pre">overflier_climber.py</span></code> may be used as a template. Add the name of the script to the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> option in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> (to make it callable from the project root directory).</p></li>
+</ul>
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>Run the tests from the project root with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pytest
+</pre></div>
+</div>
+<p>or simply:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
+</pre></div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
