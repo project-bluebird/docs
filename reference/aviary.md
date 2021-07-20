@@ -67,7 +67,7 @@ Example:
 sector_geojson.py  --sector_type=X --sector_name="X-sector" --origin=-0.1275,51.5 --lower_limit=140 --upper_limit=400
 ```
 
-![I, X, and Y sectors generated in Aviary](/images/aviary_ixy-sectors.png)
+![I, X, and Y sectors generated in Aviary](.images/aviary_ixy-sectors.png)
 
 
 
