@@ -11,7 +11,7 @@ Each aviary scenario consists of two parts:
    - X sector, representing a pair of intersecting linear airways
    - Y sector, representing a pair of merging airways.
 
-   Each aviary scenario takes place in a sector of I, X or Y type. Later versions of aviary qill support the composition of these simple elements to form more complex sectors consistent with real-world sector parts.
+   Each aviary scenario takes place in a sector of I, X or Y type. Later versions of aviary will support the composition of these simple elements to form more complex sectors consistent with real-world sector parts.
 
    In addition to defining the airspace boundary, a sector includes a set of fix locations and a corresponding set of routes through the sector, where a route is defined as a sequence of fix points.
 
