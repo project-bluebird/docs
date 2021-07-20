@@ -269,19 +269,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#command-reference">
-   Command reference
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -292,9 +279,18 @@
                 
   <div class="section" id="aviary">
 <h1>Aviary<a class="headerlink" href="#aviary" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="command-reference">
-<h2>Command reference<a class="headerlink" href="#command-reference" title="Permalink to this headline">¶</a></h2>
-</div>
+<p><a class="reference external" href="https://travis-ci.com/alan-turing-institute/aviary"><img alt="Build Status" src="https://travis-ci.com/project-bluebird/aviary.svg?branch=develop" /></a></p>
+<p>Aviary is an air traffic scenario generation package developed as part of the <a class="reference external" href="https://github.com/alan-turing-institute/simurgh">Simurgh</a> project. It aims to make available a large number of simple (but non-trivial) air traffic control scenarios suitable for the training of an artificial agent via reinforcement learning. The package also includes a set of evaluation metrics for measuring performance in the air traffic control challenge.</p>
+<p>Each aviary scenario consists of two parts:</p>
+<ol class="simple">
+<li><p>An airspace sector definition. Three elemental sector types are supported:</p>
+<ul class="simple">
+<li><p>I sector, representing a linear airway</p></li>
+<li><p>X sector, representing a pair of intersecting linear airways</p></li>
+<li><p>Y sector, representing a pair of merging airways.</p></li>
+</ul>
+</li>
+</ol>
 </div>
 
     <script type="text/x-thebe-config">
