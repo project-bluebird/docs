@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Air traffic control command reference &#8212; Project BlueBird</title>
+    <title>&lt;no title&gt; &#8212; Project BlueBird</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="pydodo.html" />
-    <link rel="prev" title="Introduction to air traffic control" href="intro.html" />
+    <link rel="next" title="BlueBird server" href="../reference/bluebird-server.html" />
+    <link rel="prev" title="Air traffic control command reference" href="commands.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -123,14 +123,14 @@
   Air Traffic Control
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Introduction to air traffic control
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="commands.html">
    Air traffic control command reference
   </a>
  </li>
@@ -226,7 +226,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/atc/commands.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/atc/pydodo.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -264,6 +264,14 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -272,10 +280,109 @@
         
               <div>
                 
-  <div class="section" id="air-traffic-control-command-reference">
-<h1>Air traffic control command reference<a class="headerlink" href="#air-traffic-control-command-reference" title="Permalink to this headline">¶</a></h1>
-<p>Magna veniam fugiat velit amet ullamco aliquip minim occaecat elit labore. Officia ut consequat veniam eiusmod laboris amet ad excepteur. Pariatur labore ullamco qui fugiat ad duis eu eu cupidatat dolor qui Lorem. Eu minim excepteur in nostrud nisi. Laborum deserunt incididunt ea exercitation.</p>
-</div>
+  <p>pydodo commands taken from <a class="reference external" href="https://github.com/alan-turing-institute/dodo/blob/master/Specification.md">pydodo specification</a>. ATC instructions taken from <a class="reference external" href="https://github.com/project-bluebird/ground-control/blob/main/other/ATC-instructions.md">ground control</a>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>ATC action</p></th>
+<th class="text-align:center head"><p>Modifier</p></th>
+<th class="text-align:center head"><p>pydodo Command</p></th>
+<th class="text-align:left head"><p>Example</p></th>
+<th class="text-align:left head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Change flight level</p></td>
+<td class="text-align:center"><p>None</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_altitude(&quot;BAW123&quot;,flight_level=100)</span></code></p></td>
+<td class="text-align:left"><p>BAW123 descend FL100</p></td>
+<td class="text-align:left"><p>Use <code class="docutils literal notranslate"><span class="pre">flight_level</span></code> argument, not the <code class="docutils literal notranslate"><span class="pre">altitude</span></code> argument</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Change flight level</p></td>
+<td class="text-align:center"><p>Level by (descent only)</p></td>
+<td class="text-align:center"><p>N/A</p></td>
+<td class="text-align:left"><p>“BAW123 descend FL100 level by OCK”</p></td>
+<td class="text-align:left"><p>ATC document suggests to use unmodified commands in first instance</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Change flight level</p></td>
+<td class="text-align:center"><p>When ready (descent only)</p></td>
+<td class="text-align:center"><p>N/A</p></td>
+<td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Change flight level</p></td>
+<td class="text-align:center"><p>Be above/Be below</p></td>
+<td class="text-align:center"><p>N/A</p></td>
+<td class="text-align:left"><p>“BAW123 descend FL100, be FL120 or below at OCK”</p></td>
+<td class="text-align:left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Change flight level</p></td>
+<td class="text-align:center"><p>Rate of climb/descent</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_altitude(&quot;BAW123&quot;,flight_level=100,vertical_speed=1500)</span></code></p></td>
+<td class="text-align:left"><p>“BAW123 descend FL100, rate of descent 1500 feet per minute or greater”</p></td>
+<td class="text-align:left"><p>Optional <code class="docutils literal notranslate"><span class="pre">vertical_speed</span></code> argument is documented but has not been demonstrated to work. Cannot confirm units are in feet/minute - cannot specify “or greater”</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Change flight level</p></td>
+<td class="text-align:center"><p>Expedite</p></td>
+<td class="text-align:center"><p>N/A</p></td>
+<td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>***</p></td>
+<td class="text-align:center"><p>***</p></td>
+<td class="text-align:center"><p>***</p></td>
+<td class="text-align:left"><p>***</p></td>
+<td class="text-align:left"><p>***</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Routing instruction</p></td>
+<td class="text-align:center"><p>None</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.direct_to_waypoint('BAW123','DVR')</span></code></p></td>
+<td class="text-align:left"><p>“BAW123 route direct to DVR”</p></td>
+<td class="text-align:left"><p>Waypoint must be specified in the aircraft’s <code class="docutils literal notranslate"><span class="pre">list_route</span></code>. Unsure if this is currently functional as <code class="docutils literal notranslate"><span class="pre">list_route</span></code> does not update to reflect specified waypoint as next waypoint</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Heading instruction</p></td>
+<td class="text-align:center"><p>None</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_heading('BAW123',heading=125)</span></code></p></td>
+<td class="text-align:left"><p>“BAW123 fly heading 125°”</p></td>
+<td class="text-align:left"><p>Point the aircraft in a specified direction.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Heading instruction</p></td>
+<td class="text-align:center"><p>None</p></td>
+<td class="text-align:center"><p>N/A</p></td>
+<td class="text-align:left"><p>“BAW123 turn left/right 10°”</p></td>
+<td class="text-align:left"><p>Heading instruction given as relative heading to aircraft once it’s on a straight portion of the route</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Heading instruction</p></td>
+<td class="text-align:center"><p>None</p></td>
+<td class="text-align:center"><p>N/A</p></td>
+<td class="text-align:left"><p>“BAW123 continue present heading”</p></td>
+<td class="text-align:left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>***</p></td>
+<td class="text-align:center"><p>***</p></td>
+<td class="text-align:center"><p>***</p></td>
+<td class="text-align:left"><p>***</p></td>
+<td class="text-align:left"><p>***</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Change speed - Mach instruction</p></td>
+<td class="text-align:center"><p>None</p></td>
+<td class="text-align:center"><p>N/A</p></td>
+<td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>Used for flight levels typically &gt; 250</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Change speed - Knots instruction</p></td>
+<td class="text-align:center"><p>None</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_speed('BAW123',speed=220)</span></code></p></td>
+<td class="text-align:left"><p>“BAW123, fly speed 220 knots”</p></td>
+<td class="text-align:left"><p>Used for flight levels typically &lt; 250</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Change speed - Knots instruction</p></td>
+<td class="text-align:center"><p>Set speed or greater</p></td>
+<td class="text-align:center"><p>N/A</p></td>
+<td class="text-align:left"><p>“BAW123, fly speed 250 knots or greater”</p></td>
+<td class="text-align:left"><p></p></td>
+</tr>
+</tbody>
+</table>
 
     <script type="text/x-thebe-config">
     {
@@ -302,8 +409,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Introduction to air traffic control</a>
-    <a class='right-next' id="next-link" href="pydodo.html" title="next page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="commands.html" title="previous page">Air traffic control command reference</a>
+    <a class='right-next' id="next-link" href="../reference/bluebird-server.html" title="next page">BlueBird server</a>
 
         </div>
         
