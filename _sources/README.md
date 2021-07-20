@@ -4,6 +4,8 @@
 
 This documentation repository uses [Jupyter Book](https://jupyterbook.org). 
 
+A static version of this docimentation can be found [here](https://project-bluebird.github.io/docs/) on the project's github page.
+
 ## Build locally
 
 **Prerequisite:** You should have `jupyter-book` installed:
@@ -18,5 +20,3 @@ jupyter-book build .
 ```
 
 The book website can then be viewed in the browser by opening `_build/html/index.html`.
-
-The static website can be viewed in the browswer using this link that should work once I set the source correctly
