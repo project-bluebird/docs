@@ -1,2 +1,0 @@
-# BlueBird server 
-## Command reference

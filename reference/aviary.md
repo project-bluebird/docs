@@ -1,2 +1,0 @@
-# Aviary
-## Command reference
