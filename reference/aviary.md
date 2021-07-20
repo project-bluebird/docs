@@ -67,6 +67,10 @@ Example:
 sector_geojson.py  --sector_type=X --sector_name="X-sector" --origin=-0.1275,51.5 --lower_limit=140 --upper_limit=400
 ```
 
+![I, X, and Y sectors generated in Aviary](/aviary_ixy-sectors.png)
+
+
+
 ### Scenario generation
 
 To generate a simple overflier-climber scenario, run the `overflier_climber.py` script, passing the following command line arguments:
