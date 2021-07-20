@@ -1,6 +1,6 @@
 # PyDodo Commands
 
-pydodo commands taken from [pydodo specification](https://github.com/alan-turing-institute/dodo/blob/master/Specification.md). ATC instructions taken from [ground control](https://github.com/project-bluebird/ground-control/blob/main/other/ATC-instructions.md).
+This page contains a list of ATCO instructions and their nearest pydodo commands, it is neither complete nor exhaustive. More pydodo commands can be found at the [pydodo specification](https://github.com/alan-turing-institute/dodo/blob/master/Specification.md). The original ATCO instructions were taken from [ground control](https://github.com/project-bluebird/ground-control/blob/main/other/ATC-instructions.md).
 
 | ATC action | Modifier | pydodo Command | Example | Notes
 | :--| :--: | :--: | :-- | :-- |
