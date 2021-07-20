@@ -19,4 +19,4 @@ jupyter-book build .
 
 The book website can then be viewed in the browser by opening `_build/html/index.html`.
 
-The static website can be viewed in the browswer using this link that should work
+The static website can be viewed in the browswer using this link that should work once I set the source correctly
