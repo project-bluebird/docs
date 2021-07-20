@@ -292,7 +292,7 @@
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Change flight level</p></td>
 <td class="text-align:center"><p>None</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_altitude&lt;br</span> <span class="pre">/&gt;(&quot;BAW123&quot;,flight_level=100)</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_altitude</span> <span class="pre">(&quot;BAW123&quot;,flight_level=100)</span></code></p></td>
 <td class="text-align:left"><p>BAW123 descend FL100</p></td>
 <td class="text-align:left"><p>Use <code class="docutils literal notranslate"><span class="pre">flight_level</span></code> argument, not the <code class="docutils literal notranslate"><span class="pre">altitude</span></code> argument</p></td>
 </tr>
@@ -316,7 +316,7 @@
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Change flight level</p></td>
 <td class="text-align:center"><p>Rate of climb/descent</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_altitude&lt;br</span> <span class="pre">/&gt;(&quot;BAW123&quot;,flight_level=100,vertical_speed=1500)</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_altitude</span> <span class="pre">(&quot;BAW123&quot;,flight_level=100,vertical_speed=1500)</span></code></p></td>
 <td class="text-align:left"><p>“BAW123 descend FL100, rate of descent 1500 feet per minute or greater”</p></td>
 <td class="text-align:left"><p>Optional <code class="docutils literal notranslate"><span class="pre">vertical_speed</span></code> argument is documented but has not been demonstrated to work. Cannot confirm units are in feet/minute - cannot specify “or greater”</p></td>
 </tr>
@@ -334,13 +334,13 @@
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Routing instruction</p></td>
 <td class="text-align:center"><p>None</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.direct_to_waypoint&lt;br</span> <span class="pre">/&gt;('BAW123','DVR')</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.direct_to_waypoint</span> <span class="pre">('BAW123','DVR')</span></code></p></td>
 <td class="text-align:left"><p>“BAW123 route direct to DVR”</p></td>
 <td class="text-align:left"><p>Waypoint must be specified in the aircraft’s <code class="docutils literal notranslate"><span class="pre">list_route</span></code>. Unsure if this is currently functional as <code class="docutils literal notranslate"><span class="pre">list_route</span></code> does not update to reflect specified waypoint as next waypoint</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Heading instruction</p></td>
 <td class="text-align:center"><p>None</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_heading&lt;br</span> <span class="pre">/&gt;('BAW123',heading=125)</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_heading</span> <span class="pre">('BAW123',heading=125)</span></code></p></td>
 <td class="text-align:left"><p>“BAW123 fly heading 125°”</p></td>
 <td class="text-align:left"><p>Point the aircraft in a specified direction.</p></td>
 </tr>
@@ -370,7 +370,7 @@
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Change speed - Knots instruction</p></td>
 <td class="text-align:center"><p>None</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_speed&lt;br</span> <span class="pre">/&gt;('BAW123',speed=220)</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_speed</span> <span class="pre">('BAW123',speed=220)</span></code></p></td>
 <td class="text-align:left"><p>“BAW123, fly speed 220 knots”</p></td>
 <td class="text-align:left"><p>Used for flight levels typically &lt; 250</p></td>
 </tr>
