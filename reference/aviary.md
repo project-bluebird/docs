@@ -92,7 +92,7 @@ To generate a simple overflier-climber scenario, run the `overflier_climber.py` 
 
 Example:
 ```
-overflier_climber.py --cruise_speed=cruise_speed.csv --cruise_speed_index=FL --climb_time=climb_time.csv --climb_time_index=FL --downtrack_distance=downtrack_distances.csv --downtrack_distance_index=FL --sector_type=I --aircraft_types=B77W,A320,A346 --flight_levels=300,360,400 --thinking_time=60 --seed=22
+overflier_climber.py --cruise_speed=cruise_speed.csv --cruise_speed_index=FL --climb_time=climb_time.csv --climb_time_index=fl_bins --downtrack_distance=downtrack_distances.csv --downtrack_distance_index=fl_bins --sector_type=I --aircraft_types=DH8D,A320,A343 --flight_levels=300,360,400 --thinking_time=60 --seed=22
 ```
 
 ### Scenario translation
