@@ -15,10 +15,10 @@ parts:
     - file: guides/agents
 
   - caption: Air Traffic Control  
-    chapters:
+      chapters:
     - file: atc/intro
     - file: atc/commands
-  
+    - file: atc/pydodo
 
   - caption: Command reference
     chapters:
