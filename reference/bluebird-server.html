@@ -397,6 +397,7 @@ python ./run.py
 </pre></div>
 </div>
 <p>Bluebird should now be up and running, and listening for API requests on <a class="reference external" href="http://0.0.0.0:5001/">http://0.0.0.0:5001/</a>.</p>
+<p>If you are using a version of Aviary that isn’t the on the develop branch, then edit the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file in bluebird to point to the appropriate branch.</p>
 <p>To verify it’s working, navigate to <a class="reference external" href="http://0.0.0.0:5001/api/v2/siminfo">http://0.0.0.0:5001/api/v2/siminfo</a>. This simple GET request returns a JSON Object containing information about the running simulator (BlueSky). You can then try out the other <a class="reference external" href="#api-endpoints">API endpoints</a>.</p>
 <p>Note that BlueBird can be run with the following options:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ./run.py <span class="o">[</span>--sim-host<span class="o">=</span>&lt;address&gt;<span class="o">]</span> <span class="o">[</span>--sim-mode<span class="o">=</span>&lt;mode&gt;<span class="o">]</span> <span class="o">[</span>--reset-sim<span class="o">]</span> <span class="o">[</span>--log-rate<span class="o">=</span>&lt;rate&gt;<span class="o">]</span>

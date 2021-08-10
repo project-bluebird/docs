@@ -57,6 +57,9 @@ python ./run.py
 
 Bluebird should now be up and running, and listening for API requests on http://0.0.0.0:5001/.
 
+
+If you are using a version of Aviary that isn't the on the develop branch, then edit the `requirements.txt` file in bluebird to point to the appropriate branch.
+
 To verify it's working, navigate to http://0.0.0.0:5001/api/v2/siminfo. This simple GET request returns a JSON Object containing information about the running simulator (BlueSky). You can then try out the other [API endpoints](#api-endpoints).
 
 Note that BlueBird can be run with the following options:
