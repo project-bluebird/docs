@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BlueBird server &#8212; Project BlueBird</title>
+    <title>BlueBird &#8212; Project BlueBird</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -143,7 +143,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   BlueBird server
+   BlueBird
   </a>
  </li>
  <li class="toctree-l1">
@@ -270,9 +270,70 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#command-reference">
-   Command reference
+  <a class="reference internal nav-link" href="#quickstart">
+   Quickstart
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   Usage
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pre-requisites">
+     Pre-requisites
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-locally">
+     Running locally
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#full-example-with-bluesky-simulator">
+       Full example with BlueSky simulator
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-with-docker">
+     Running with Docker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#api-endpoints">
+     API Endpoints
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logging">
+     Logging
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#development">
+   Development
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation">
+     Installation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing">
+     Testing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-quality">
+     Code Quality
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -285,10 +346,133 @@
         
               <div>
                 
-  <div class="section" id="bluebird-server">
-<h1>BlueBird server<a class="headerlink" href="#bluebird-server" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="command-reference">
-<h2>Command reference<a class="headerlink" href="#command-reference" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="bluebird">
+<h1>BlueBird<a class="headerlink" href="#bluebird" title="Permalink to this headline">¶</a></h1>
+<p><img alt="Python Version" src="https://img.shields.io/badge/python-3.7-blue" />
+<img alt="License" src="https://img.shields.io/github/license/project-bluebird/bluebird" />
+<img alt="Code Style" src="https://img.shields.io/badge/code%20style-black-000000.svg" />
+<a class="reference external" href="https://github.com/pre-commit/pre-commit"><img alt="pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white" /></a></p>
+<p>BlueBird provides a common <a class="reference external" href="https://github.com/pallets/flask">Flask</a>-based API to multiple air traffic simulators. In addition to basic communication, it also includes features such as state caching, performance metrics (via <a class="reference external" href="https://github.com/project-bluebird/aviary">Aviary</a>), and logging of scenario data. The main purpose of BlueBird is to provide a common interface to ease the research &amp; development of AI for air traffic control.</p>
+<p>The currently supported open-source simulator is <a class="reference external" href="https://github.com/project-bluebird/bluesky">BlueSky</a>.</p>
+<div class="section" id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
+<p>To run Bluebird with Bluesky as the simulator, the easiest method is to run both in Docker using instructions from <a class="reference external" href="https://github.com/project-bluebird/simurgh">the Simurgh repo</a>. The repo also contains a Jupyter notebook with example usage.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pre-requisites">
+<h3>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>python 3.7</p></li>
+<li><p>virtualenv</p></li>
+</ul>
+</div>
+<div class="section" id="running-locally">
+<h3>Running locally<a class="headerlink" href="#running-locally" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="full-example-with-bluesky-simulator">
+<h4>Full example with BlueSky simulator<a class="headerlink" href="#full-example-with-bluesky-simulator" title="Permalink to this headline">¶</a></h4>
+<p>To run Bluebird with BlueSky from source, first clone both repos.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/project-bluebird/bluesky.git
+git clone https://github.com/project-bluebird/bluebird.git
+</pre></div>
+</div>
+<p>Open two terminals. In the first one, install and run BlueSky:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Bluesky</span>
+<span class="nb">cd</span> bluesky
+./install.sh --headless
+
+<span class="c1"># Run Bluesky</span>
+<span class="nb">source</span> venv/bin/activate
+python BlueSky.py --headless
+</pre></div>
+</div>
+<p>In your second terminal, install and run Bluebird:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Bluebird</span>
+<span class="nb">cd</span> bluebird
+./install.sh
+
+<span class="c1"># Run Bluebird, connected to Bluesky</span>
+<span class="nb">source</span> venv/bin/activate
+python ./run.py
+</pre></div>
+</div>
+<p>Bluebird should now be up and running, and listening for API requests on <a class="reference external" href="http://0.0.0.0:5001/">http://0.0.0.0:5001/</a>.</p>
+<p>To verify it’s working, navigate to <a class="reference external" href="http://0.0.0.0:5001/api/v2/siminfo">http://0.0.0.0:5001/api/v2/siminfo</a>. This simple GET request returns a JSON Object containing information about the running simulator (BlueSky). You can then try out the other <a class="reference external" href="#api-endpoints">API endpoints</a>.</p>
+<p>Note that BlueBird can be run with the following options:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ./run.py <span class="o">[</span>--sim-host<span class="o">=</span>&lt;address&gt;<span class="o">]</span> <span class="o">[</span>--sim-mode<span class="o">=</span>&lt;mode&gt;<span class="o">]</span> <span class="o">[</span>--reset-sim<span class="o">]</span> <span class="o">[</span>--log-rate<span class="o">=</span>&lt;rate&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">--dev</span></code> option will also install dependencies needed for developing BlueBird</p></li>
+<li><p>If you need to connect to BlueSky on another host (i.e. on a VM), you may pass the <code class="docutils literal notranslate"><span class="pre">--sim-host</span></code> option to <a class="reference external" href="http://run.py">run.py</a>.</p></li>
+<li><p>If passed, <code class="docutils literal notranslate"><span class="pre">--reset-sim</span></code> will reset the simulation on connection</p></li>
+<li><p>If passed, <code class="docutils literal notranslate"><span class="pre">--sim-mode</span></code> will start the simulation in a specific <span class="xref myst">mode</span>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="running-with-docker">
+<h3>Running with Docker<a class="headerlink" href="#running-with-docker" title="Permalink to this headline">¶</a></h3>
+<p>BlueBird can also be run through Docker. Easiest way is to run with docker-compose:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker-compose up -d
+</pre></div>
+</div>
+<p>This will build a docker image for BlueBird (using the code in this repository) as well as pull and start a BlueSky simulator container.</p>
+<p>You can also use the pre-built <code class="docutils literal notranslate"><span class="pre">turinginst/bluebird</span></code> image. This uses <code class="docutils literal notranslate"><span class="pre">localhost</span></code> for the BlueSky host. This can be overridden with environment variable:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run --rm -e <span class="nv">BS_HOST</span><span class="o">=</span><span class="s2">&quot;1.2.3.4&quot;</span> turinginst/bluebird:latest
+</pre></div>
+</div>
+</div>
+<div class="section" id="api-endpoints">
+<h3>API Endpoints<a class="headerlink" href="#api-endpoints" title="Permalink to this headline">¶</a></h3>
+<p>The complete list of API requests supported by BlueBird may be found <span class="xref myst">here</span>. Requests can be submitted from the command line using <a class="reference external" href="https://curl.se/">curl</a> or via a GUI with the <a class="reference external" href="https://www.postman.com/downloads/">Postman app</a>.</p>
+<p>To interact with Bluebird programmatically in R or Python, use the <a class="reference external" href="https://github.com/project-bluebird/dodo">Dodo package</a>. See the <a class="reference external" href="https://github.com/project-bluebird/simurgh">the Simurgh repo</a> for a demo of example usage.</p>
+</div>
+<div class="section" id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<p>By default, BlueBird creates two log files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">logs/&lt;timestamp&gt;-&lt;instance_id&gt;/debug.log</span></code> Contains general application logging and Flask request info. One file per instance of BlueBird. The <code class="docutils literal notranslate"><span class="pre">instance_id</span></code> is a unique identifier based on the ID of the host machine and the current time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logs/&lt;timestamp&gt;-&lt;instance_id&gt;/&lt;timestamp&gt;-&lt;episode_id&gt;.log</span></code> Contains a log of aircraft and simulation data. A new file is created for each scenario that is loaded, and the file is closed if the simulation is reset. The <code class="docutils literal notranslate"><span class="pre">episode_id</span></code> is a random unique identifier.</p>
+<ul>
+<li><p>Entries prefixed with ‘A’ contain info on the aircraft in the simulation</p></li>
+<li><p>Entries prefixed with ‘E’ contain info on episode events (start/end, file loaded)</p></li>
+<li><p>Entries prefixed with ‘C’ contain info on commands sent to the simulator</p></li>
+</ul>
+</li>
+</ul>
+<p>The episode file is only recorded for <a class="reference external" href="https://github.com/project-bluebird/bluebird/blob/master/docs/SimulatorModes.md">Agent mode</a>.</p>
+<p>The timestamps of the <code class="docutils literal notranslate"><span class="pre">logs/*</span></code> directories are the start times of the BlueBird app, whereas the timestamps in the episode file names are the start of each episode.</p>
+</div>
+</div>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>To install development packages, pass the <code class="docutils literal notranslate"><span class="pre">--dev</span></code> option to the install script. Or if you have already created a virtual environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -r requirements-dev.txt
+$ pre-commit install
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>The unit test suite can be run with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest <span class="o">[</span>&lt;optional-arguments&gt;<span class="o">]</span> tests
+</pre></div>
+</div>
+<p>You can also pass paths to individual modules or tests:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest <span class="o">[</span>&lt;optional-arguments&gt;<span class="o">]</span> &lt;test-file&gt;::&lt;test-name&gt;
+</pre></div>
+</div>
+<p>Integration tests can run with each supported simulator, however they will only be run in a CI environment unless forced with the <code class="docutils literal notranslate"><span class="pre">--run-integration</span></code> flag.</p>
+<p>Integration tests require Docker to run. To specify a different docker daemon host than localhost, you can pass <code class="docutils literal notranslate"><span class="pre">--docker-host=&lt;host</span> <span class="pre">address&gt;:&lt;port&gt;</span></code>. This can be useful when testing if you don’t have Docker locally installed, or if the images required for testing are only available on a remote host.</p>
+<p>The default integration simulator is BlueSky. To test against a different simulator, specify it with the <code class="docutils literal notranslate"><span class="pre">--integration-sim=&lt;sim</span> <span class="pre">name&gt;</span></code> option.</p>
+</div>
+<div class="section" id="code-quality">
+<h3>Code Quality<a class="headerlink" href="#code-quality" title="Permalink to this headline">¶</a></h3>
+<p>BlueBird uses <a class="reference external" href="https://pre-commit.com">pre-commit</a> to help ensure code quality and correctness. Once installed, this automatically runs as part of the git commit process.</p>
+<hr class="docutils" />
+</div>
 </div>
 </div>
 
