@@ -73,6 +73,20 @@ python ./run.py [--sim-host=<address>] [--sim-mode=<mode>] [--reset-sim] [--log-
 - If passed, `--reset-sim` will reset the simulation on connection
 - If passed, `--sim-mode` will start the simulation in a specific [mode](docs/SimulatorModes.md).
 
+[Twitcher](https://github.com/project-bluebird/twitcher) is the front-end for [Bluebird](https://github.com/alan-turing-institute/bluebird) for monitoring the simulation, and can be used to visualise - for example - custom sectors defined in Aviary. 
+
+The recommended way to run Twitcher is via a docker container. Simply clone the [repository](https://github.com/project-bluebird/twitcher) and run
+
+```
+docker-compose up --build
+```
+
+Then go to [http://localhost:8080/](http://localhost:8080/) in your browser.
+
+Twitcher assumes that [Bluesky](https://github.com/alan-turing-institute/bluesky/) and [Bluebird](https://github.com/alan-turing-institute/bluebird/) are already running on the same machine.
+
+
+
 ### Running with Docker
 
 BlueBird can also be run through Docker. Easiest way is to run with docker-compose:
