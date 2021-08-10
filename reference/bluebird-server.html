@@ -409,6 +409,13 @@ python ./run.py
 <li><p>If passed, <code class="docutils literal notranslate"><span class="pre">--reset-sim</span></code> will reset the simulation on connection</p></li>
 <li><p>If passed, <code class="docutils literal notranslate"><span class="pre">--sim-mode</span></code> will start the simulation in a specific <span class="xref myst">mode</span>.</p></li>
 </ul>
+<p><a class="reference external" href="https://github.com/project-bluebird/twitcher">Twitcher</a> is the front-end for <a class="reference external" href="https://github.com/alan-turing-institute/bluebird">Bluebird</a> for monitoring the simulation, and can be used to visualise - for example - custom sectors defined in Aviary.</p>
+<p>The recommended way to run Twitcher is via a docker container. Simply clone the <a class="reference external" href="https://github.com/project-bluebird/twitcher">repository</a> and run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">--</span><span class="n">build</span>
+</pre></div>
+</div>
+<p>Then go to <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a> in your browser.</p>
+<p>Twitcher assumes that <a class="reference external" href="https://github.com/alan-turing-institute/bluesky/">Bluesky</a> and <a class="reference external" href="https://github.com/alan-turing-institute/bluebird/">Bluebird</a> are already running on the same machine.</p>
 </div>
 </div>
 <div class="section" id="running-with-docker">
