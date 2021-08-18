@@ -24,6 +24,7 @@ parts:
     chapters:
     - file: reference/bluebird-server
     - file: reference/aviary
+    - file: reference/tmp_notebook
 
   - caption: Developer documentation
     chapters:
