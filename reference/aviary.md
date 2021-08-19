@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/project-bluebird/aviary.svg?branch=develop)](https://travis-ci.com/alan-turing-institute/aviary)
 
-Aviary is an air traffic scenario generation package developed as part of the [Simurgh](https://github.com/alan-turing-institute/simurgh) project. It aims to make available a large number of simple (but non-trivial) air traffic control scenarios suitable for the training of an artificial agent via reinforcement learning. The package also includes a set of evaluation metrics for measuring performance in the air traffic control challenge.
+Aviary is an air traffic scenario generation package developed as part of the BlueBird project. It aims to make available a large number of simple (but non-trivial) air traffic control scenarios suitable for the training of an artificial agent via reinforcement learning. The package also includes a set of evaluation metrics for measuring performance in the air traffic control challenge.
 
 Each aviary scenario consists of two parts:
 
@@ -10,14 +10,15 @@ Each aviary scenario consists of two parts:
    - I sector, representing a linear airway
    - X sector, representing a pair of intersecting linear airways
    - Y sector, representing a pair of merging airways.
+   - C sector, customised sectors and waypoints corresponding to real-world ATC sectors
 
-   Each aviary scenario takes place in a sector of I, X or Y type. Later versions of aviary will support the composition of these simple elements to form more complex sectors consistent with real-world sector parts.
-
-   In addition to defining the airspace boundary, a sector includes a set of fix locations and a corresponding set of routes through the sector, where a route is defined as a sequence of fix points.
+   Aviary scenarios take place in a sector of I, X, Y, or C type. 
+   In addition to defining the airspace boundary, a sector includes a set of fixed waypoints and a corresponding set of routes through the sector, where a route is defined as a sequence of fix points.
 
    Sector definitions are serialised in GeoJSON format.
 
-1. A sequence of aircraft whose routes pass through the sector. Each aircraft is defined by the following attributes:<a id="aircraft-attributes"></a>
+2. A sequence of aircraft whose routes pass through the sector. Each aircraft is defined by the following attributes:
+```aircraft-attributes
    - callsign
    - aircraft type
    - initial position
@@ -28,7 +29,7 @@ Each aviary scenario consists of two parts:
    - cleared flight level
    - requested flight level
    - route (sequence of fix points crossing the sector)
-
+```
    Aircraft definitions are serialised in JSON format.
 
 ## Installation
@@ -46,7 +47,7 @@ pip install -e .
 ## Usage
 
 Aviary supports:
-  - [Generation of I, X, Y sector definitions](#sector-generation) in GeoJSON format
+  - [Generation of I, X, Y, and C sector definitions](#sector-generation) in GeoJSON format
   - [Generation of aircraft definitions](#scenario-generation) in JSON format
   - [Translation](#scenario-translation) between aviary and [BlueSky](https://github.com/alan-turing-institute/bluesky) scenario formats
 <!--  - Calculation of ATC performance metrics. -->
@@ -105,25 +106,4 @@ overflier_climber.py --cruise_speed=cruise_speed.csv --cruise_speed_index=FL --c
 Example:
 ```
 parse-scenario.py --sector_geojson=I-sector.geojson --scenario_json=overflier-climber-22.json
-```
-
-<!-- ### Performance metrics (NYI) -->
-
-## Development
-
-Scenario generation algorithms are implemented in aviary as [strategies](https://en.wikipedia.org/wiki/Strategy_pattern) in the context of the `ScenarioGenerator` class. The workflow for adding a new algorithms is:
- - Create a subclass of `ScenarioAlgorithm` and implement the `aircraft_generator` method. On each call, this method must yield a dictionary representing a new aircraft in the scenario, containing all of the [attributes listed above](#aircraft-attributes).
- - Optionally, add a python script (in the `scripts/` directory) to enable scenario generation from the command line. The existing script `overflier_climber.py` may be used as a template. Add the name of the script to the `scripts` option in `setup.py` (to make it callable from the project root directory).
-
-
-## Tests
-
-Run the tests from the project root with:
-```bash
-python -m pytest
-```
-
-or simply:
-```bash
-pytest
 ```
