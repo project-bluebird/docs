@@ -1,19 +1,20 @@
-# Project BlueBird documentation
+# Project BlueBird Documentation
 
 This is the documentation site for Project BlueBird, a prosperity partnership between The Alan Turing Institute and NATS, supported by EPSRC.
 
+The research vision for this project is to deliver the world’s first artificial intelligence (AI) system to control a section of airspace in live trials using digital twinning and machine learning technologies and tools and methods that promote safe and trustworthy use of AI.
 
-Air traffic control (ATC) is a complex task requiring real-time safety-critical decision making. In practice, air traffic control operators (ATCOs) monitor a given sector and issue commands to aircraft pilots to ensure safe separation between aircraft. They also have to consider the number and frequency of instructions issued, fuel efficiency and orderly handover between sectors.
-
-Optimising for the multiple objectives while accounting for uncertainty (e.g., due to aircraft mass, pilot behaviour or weather conditions) makes this a particularly complex task.
-
-Eu laborum reprehenderit incididunt consequat aute ullamco eu Lorem sint. Eu voluptate ea et voluptate. Non cupidatat sint proident dolor minim Lorem laboris in in. Adipisicing ea magna in Lorem aliqua laborum aliqua voluptate Lorem velit duis. Anim in officia enim magna duis. Mollit in ea occaecat ullamco dolore esse aliqua nisi officia ullamco laboris excepteur do.
+This documentation site will guide users through the use of simulators and the BlueBird API used for this project. It will also discuss air traffic control simulation and scenario generation and evaluation. 
 
 :::{note}
 The codebase is under heavy development.
 :::
 
 ## About 
+
+
+![Dependency flow using BlueBird](../images/bluebird_dependency_flow.png)
+
 
 Ullamco esse ad irure duis. Tempor dolore ut proident ex enim ad occaecat irure cupidatat. Adipisicing minim sit laboris nisi veniam enim dolore aliquip. Magna adipisicing exercitation non ut. Aliqua ullamco et laboris amet minim fugiat consectetur Lorem eu labore culpa Lorem ipsum aliqua. Qui id eu cillum fugiat culpa nulla dolore velit. Nisi id fugiat id culpa reprehenderit laboris.
 
@@ -28,4 +29,4 @@ Aliquip et ex ex esse voluptate enim ea mollit ea excepteur et velit. Esse ex su
 
 ## Get in touch
 
-Here is a link to BlueBird's [twitter](https://twitter.com/bluebirdai) account. More information on the project can be found on the [Turing website](https://www.turing.ac.uk/research/research-projects/project-bluebird-ai-system-air-traffic-control).  
+BlueBird has a [twitter](https://twitter.com/bluebirdai) account. More information on the project can be found on the [Turing website](https://www.turing.ac.uk/research/research-projects/project-bluebird-ai-system-air-traffic-control).  
