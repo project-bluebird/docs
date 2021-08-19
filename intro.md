@@ -1,5 +1,12 @@
 # Project BlueBird documentation
 
+This is the documentation site for Project BlueBird, a prosperity partnership between The Alan Turing Institute and NATS, supported by EPSRC.
+
+
+Air traffic control (ATC) is a complex task requiring real-time safety-critical decision making. In practice, air traffic control operators (ATCOs) monitor a given sector and issue commands to aircraft pilots to ensure safe separation between aircraft. They also have to consider the number and frequency of instructions issued, fuel efficiency and orderly handover between sectors.
+
+Optimising for the multiple objectives while accounting for uncertainty (e.g., due to aircraft mass, pilot behaviour or weather conditions) makes this a particularly complex task.
+
 Eu laborum reprehenderit incididunt consequat aute ullamco eu Lorem sint. Eu voluptate ea et voluptate. Non cupidatat sint proident dolor minim Lorem laboris in in. Adipisicing ea magna in Lorem aliqua laborum aliqua voluptate Lorem velit duis. Anim in officia enim magna duis. Mollit in ea occaecat ullamco dolore esse aliqua nisi officia ullamco laboris excepteur do.
 
 :::{note}
@@ -21,4 +28,4 @@ Aliquip et ex ex esse voluptate enim ea mollit ea excepteur et velit. Esse ex su
 
 ## Get in touch
 
-Ea magna exercitation tempor quis ipsum consequat cupidatat ullamco ea. Enim aliquip occaecat cupidatat nulla et qui anim ut. Minim do amet ipsum non fugiat incididunt sit voluptate cupidatat pariatur consectetur velit nostrud tempor. Aliquip elit cupidatat magna laboris enim nisi magna occaecat ad. Occaecat irure labore aute velit esse amet qui minim sunt. Adipisicing elit laboris laboris deserunt laborum duis esse est. Amet magna ut ullamco sint.
+Here is a link to BlueBird's [twitter](https://twitter.com/bluebirdai) account. More information on the project can be found on the [Turing website](https://www.turing.ac.uk/research/research-projects/project-bluebird-ai-system-air-traffic-control).  
