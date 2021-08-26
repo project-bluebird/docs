@@ -17,4 +17,4 @@ Here we have some information about the different packages and scaffolds used in
 ## Aviary
 [![Build Status](https://travis-ci.com/project-bluebird/aviary.svg?branch=develop)](https://travis-ci.com/alan-turing-institute/aviary)
 
-[Aviary](../reference/aviary.md) is an air traffic scenario generation package developed as part of the BlueBird project. It aims to make available a large number of simple (but non-trivial) air traffic control scenarios suitable for the training of an artificial agent via reinforcement learning. The package also includes a set of evaluation metrics for measuring performance in the air traffic control challenge.
+[Aviary](../reference/aviary.md) is an air traffic scenario generation package developed as part of the BlueBird project. It aims to provide a platform for agent training, by making a large number of simple, (but non-trivial) air traffic control scenarios available. The package also includes a set of evaluation metrics for measuring performance in the air traffic control challenge.
