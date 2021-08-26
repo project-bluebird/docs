@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -42,7 +42,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -80,12 +80,12 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Project BlueBird documentation
+   Project BlueBird Documentation
   </a>
  </li>
 </ul>
@@ -96,8 +96,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../intro/about.html">
+   About
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../intro/install.html">
-   Installation instructions
+   Installation Instructions
   </a>
  </li>
 </ul>
@@ -272,7 +277,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installation">
@@ -301,16 +306,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#development">
-   Development
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tests">
-   Tests
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -325,7 +320,7 @@
   <div class="section" id="aviary">
 <h1>Aviary<a class="headerlink" href="#aviary" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://travis-ci.com/alan-turing-institute/aviary"><img alt="Build Status" src="https://travis-ci.com/project-bluebird/aviary.svg?branch=develop" /></a></p>
-<p>Aviary is an air traffic scenario generation package developed as part of the <a class="reference external" href="https://github.com/alan-turing-institute/simurgh">Simurgh</a> project. It aims to make available a large number of simple (but non-trivial) air traffic control scenarios suitable for the training of an artificial agent via reinforcement learning. The package also includes a set of evaluation metrics for measuring performance in the air traffic control challenge.</p>
+<p>Aviary is an air traffic scenario generation package developed as part of the BlueBird project. It aims to make available a large number of simple (but non-trivial) air traffic control scenarios suitable for the training of an artificial agent via reinforcement learning. The package also includes a set of evaluation metrics for measuring performance in the air traffic control challenge.</p>
 <p>Each aviary scenario consists of two parts:</p>
 <ol>
 <li><p>An airspace sector definition. Three elemental sector types are supported:</p>
@@ -333,27 +328,27 @@
 <li><p>I sector, representing a linear airway</p></li>
 <li><p>X sector, representing a pair of intersecting linear airways</p></li>
 <li><p>Y sector, representing a pair of merging airways.</p></li>
+<li><p>C sector, customised sectors and waypoints corresponding to real-world ATC sectors</p></li>
 </ul>
-<p>Each aviary scenario takes place in a sector of I, X or Y type. Later versions of aviary will support the composition of these simple elements to form more complex sectors consistent with real-world sector parts.</p>
-<p>In addition to defining the airspace boundary, a sector includes a set of fix locations and a corresponding set of routes through the sector, where a route is defined as a sequence of fix points.</p>
+<p>Aviary scenarios take place in a sector of I, X, Y, or C type.
+In addition to defining the airspace boundary, a sector includes a set of fixed waypoints and a corresponding set of routes through the sector, where a route is defined as a sequence of fix points.</p>
 <p>Sector definitions are serialised in GeoJSON format.</p>
 </li>
-<li><p>A sequence of aircraft whose routes pass through the sector. Each aircraft is defined by the following attributes:<a id="aircraft-attributes"></a></p>
-<ul class="simple">
-<li><p>callsign</p></li>
-<li><p>aircraft type</p></li>
-<li><p>initial position</p></li>
-<li><p>arrival time relative to the scenario start time (“timedelta”)</p></li>
-<li><p>departure airport</p></li>
-<li><p>destination airport</p></li>
-<li><p>current flight level</p></li>
-<li><p>cleared flight level</p></li>
-<li><p>requested flight level</p></li>
-<li><p>route (sequence of fix points crossing the sector)</p></li>
-</ul>
-<p>Aircraft definitions are serialised in JSON format.</p>
-</li>
+<li><p>A sequence of aircraft whose routes pass through the sector. Each aircraft is defined by the following attributes:</p></li>
 </ol>
+<div class="highlight-aircraft-attributes notranslate"><div class="highlight"><pre><span></span>   - callsign
+   - aircraft type
+   - initial position
+   - arrival time relative to the scenario start time (&quot;timedelta&quot;)
+   - departure airport
+   - destination airport
+   - current flight level
+   - cleared flight level
+   - requested flight level
+   - route (sequence of fix points crossing the sector)
+</pre></div>
+</div>
+<p>Aircraft definitions are serialised in JSON format.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Install from the repository root directory:</p>
@@ -369,7 +364,7 @@
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>Aviary supports:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="#sector-generation">Generation of I, X, Y sector definitions</a> in GeoJSON format</p></li>
+<li><p><a class="reference external" href="#sector-generation">Generation of I, X, Y, and C sector definitions</a> in GeoJSON format</p></li>
 <li><p><a class="reference external" href="#scenario-generation">Generation of aircraft definitions</a> in JSON format</p></li>
 <li><p><a class="reference external" href="#scenario-translation">Translation</a> between aviary and <a class="reference external" href="https://github.com/alan-turing-institute/bluesky">BlueSky</a> scenario formats</p></li>
 </ul>
@@ -428,26 +423,6 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span><span class="o">-</span><span class="n">scenario</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">sector_geojson</span><span class="o">=</span><span class="n">I</span><span class="o">-</span><span class="n">sector</span><span class="o">.</span><span class="n">geojson</span> <span class="o">--</span><span class="n">scenario_json</span><span class="o">=</span><span class="n">overflier</span><span class="o">-</span><span class="n">climber</span><span class="o">-</span><span class="mf">22.</span><span class="n">json</span>
 </pre></div>
 </div>
-<!-- ### Performance metrics (NYI) -->
-</div>
-</div>
-<div class="section" id="development">
-<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
-<p>Scenario generation algorithms are implemented in aviary as <a class="reference external" href="https://en.wikipedia.org/wiki/Strategy_pattern">strategies</a> in the context of the <code class="docutils literal notranslate"><span class="pre">ScenarioGenerator</span></code> class. The workflow for adding a new algorithms is:</p>
-<ul class="simple">
-<li><p>Create a subclass of <code class="docutils literal notranslate"><span class="pre">ScenarioAlgorithm</span></code> and implement the <code class="docutils literal notranslate"><span class="pre">aircraft_generator</span></code> method. On each call, this method must yield a dictionary representing a new aircraft in the scenario, containing all of the <a class="reference external" href="#aircraft-attributes">attributes listed above</a>.</p></li>
-<li><p>Optionally, add a python script (in the <code class="docutils literal notranslate"><span class="pre">scripts/</span></code> directory) to enable scenario generation from the command line. The existing script <code class="docutils literal notranslate"><span class="pre">overflier_climber.py</span></code> may be used as a template. Add the name of the script to the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> option in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> (to make it callable from the project root directory).</p></li>
-</ul>
-</div>
-<div class="section" id="tests">
-<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
-<p>Run the tests from the project root with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pytest
-</pre></div>
-</div>
-<p>or simply:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
-</pre></div>
 </div>
 </div>
 </div>
@@ -475,12 +450,32 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="bluebird-server.html" title="previous page">BlueBird</a>
-    <a class='right-next' id="next-link" href="tmp_notebook.html" title="next page">Temporary Notebook Placeholder</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="bluebird-server.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">BlueBird</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="tmp_notebook.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Temporary Notebook Placeholder</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PyDodo Commands &#8212; Project BlueBird</title>
+    <title>About &#8212; Project BlueBird</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installation Instructions" href="install.html" />
+    <link rel="prev" title="Project BlueBird Documentation" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -92,14 +94,14 @@
   Getting started
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro/about.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    About
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro/install.html">
+  <a class="reference internal" href="install.html">
    Installation Instructions
   </a>
  </li>
@@ -128,12 +130,12 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="../atc/intro.html">
    Introduction to air traffic control
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="commands.html">
+  <a class="reference internal" href="../atc/commands.html">
    Air traffic control command reference
   </a>
  </li>
@@ -234,7 +236,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/atc/pydodo.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/intro/about.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -272,6 +274,29 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bluebird">
+   BlueBird
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bluesky">
+   BlueSky
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aviary">
+   Aviary
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -280,111 +305,26 @@
         
               <div>
                 
-  <div class="section" id="pydodo-commands">
-<h1>PyDodo Commands<a class="headerlink" href="#pydodo-commands" title="Permalink to this headline">¶</a></h1>
-<p>This page contains a list of ATCO instructions and their nearest pydodo commands, it is neither complete nor exhaustive. More pydodo commands can be found at the <a class="reference external" href="https://github.com/alan-turing-institute/dodo/blob/master/Specification.md">pydodo specification</a>. The original ATCO instructions were taken from <a class="reference external" href="https://github.com/project-bluebird/ground-control/blob/main/other/ATC-instructions.md">ground control</a>.</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>ATC action</p></th>
-<th class="text-align:center head"><p>Modifier</p></th>
-<th class="text-align:center head"><p>pydodo Command</p></th>
-<th class="text-align:left head"><p>Example</p></th>
-<th class="text-align:left head"><p>Notes</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>Change flight level</p></td>
-<td class="text-align:center"><p>None</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_altitude</span> <span class="pre">(&quot;BAW123&quot;,flight_level=100)</span></code></p></td>
-<td class="text-align:left"><p>BAW123 descend FL100</p></td>
-<td class="text-align:left"><p>Use <code class="docutils literal notranslate"><span class="pre">flight_level</span></code> argument, not the <code class="docutils literal notranslate"><span class="pre">altitude</span></code> argument</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Change flight level</p></td>
-<td class="text-align:center"><p>Level by (descent only)</p></td>
-<td class="text-align:center"><p>N/A</p></td>
-<td class="text-align:left"><p>“BAW123 descend FL100 level by OCK”</p></td>
-<td class="text-align:left"><p>ATC document suggests to use unmodified commands in first instance</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Change flight level</p></td>
-<td class="text-align:center"><p>When ready (descent only)</p></td>
-<td class="text-align:center"><p>N/A</p></td>
-<td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Change flight level</p></td>
-<td class="text-align:center"><p>Be above/Be below</p></td>
-<td class="text-align:center"><p>N/A</p></td>
-<td class="text-align:left"><p>“BAW123 descend FL100, be FL120 or below at OCK”</p></td>
-<td class="text-align:left"><p></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Change flight level</p></td>
-<td class="text-align:center"><p>Rate of climb/descent</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_altitude</span> <span class="pre">(&quot;BAW123&quot;,flight_level=100,</span> <span class="pre">vertical_speed=1500)</span></code></p></td>
-<td class="text-align:left"><p>“BAW123 descend FL100, rate of descent 1500 feet per minute or greater”</p></td>
-<td class="text-align:left"><p>Optional <code class="docutils literal notranslate"><span class="pre">vertical_speed</span></code> argument is documented but has not been demonstrated to work. Cannot confirm units are in feet/minute - cannot specify “or greater”</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Change flight level</p></td>
-<td class="text-align:center"><p>Expedite</p></td>
-<td class="text-align:center"><p>N/A</p></td>
-<td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>***</p></td>
-<td class="text-align:center"><p>***</p></td>
-<td class="text-align:center"><p>***</p></td>
-<td class="text-align:left"><p>***</p></td>
-<td class="text-align:left"><p>***</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Routing instruction</p></td>
-<td class="text-align:center"><p>None</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.direct_to_waypoint</span> <span class="pre">('BAW123','DVR')</span></code></p></td>
-<td class="text-align:left"><p>“BAW123 route direct to DVR”</p></td>
-<td class="text-align:left"><p>Waypoint must be specified in the aircraft’s <code class="docutils literal notranslate"><span class="pre">list_route</span></code>. Unsure if this is currently functional as <code class="docutils literal notranslate"><span class="pre">list_route</span></code> does not update to reflect specified waypoint as next waypoint</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Heading instruction</p></td>
-<td class="text-align:center"><p>None</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_heading</span> <span class="pre">('BAW123',heading=125)</span></code></p></td>
-<td class="text-align:left"><p>“BAW123 fly heading 125°”</p></td>
-<td class="text-align:left"><p>Point the aircraft in a specified direction.</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Heading instruction</p></td>
-<td class="text-align:center"><p>None</p></td>
-<td class="text-align:center"><p>N/A</p></td>
-<td class="text-align:left"><p>“BAW123 turn left/right 10°”</p></td>
-<td class="text-align:left"><p>Heading instruction given as relative heading to aircraft once it’s on a straight portion of the route</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Heading instruction</p></td>
-<td class="text-align:center"><p>None</p></td>
-<td class="text-align:center"><p>N/A</p></td>
-<td class="text-align:left"><p>“BAW123 continue present heading”</p></td>
-<td class="text-align:left"><p></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>***</p></td>
-<td class="text-align:center"><p>***</p></td>
-<td class="text-align:center"><p>***</p></td>
-<td class="text-align:left"><p>***</p></td>
-<td class="text-align:left"><p>***</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Change speed - Mach instruction</p></td>
-<td class="text-align:center"><p>None</p></td>
-<td class="text-align:center"><p>N/A</p></td>
-<td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>Used for flight levels typically &gt; 250</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Change speed - Knots instruction</p></td>
-<td class="text-align:center"><p>None</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">pydodo.change_speed</span> <span class="pre">('BAW123',speed=220)</span></code></p></td>
-<td class="text-align:left"><p>“BAW123, fly speed 220 knots”</p></td>
-<td class="text-align:left"><p>Used for flight levels typically &lt; 250</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Change speed - Knots instruction</p></td>
-<td class="text-align:center"><p>Set speed or greater</p></td>
-<td class="text-align:center"><p>N/A</p></td>
-<td class="text-align:left"><p>“BAW123, fly speed 250 knots or greater”</p></td>
-<td class="text-align:left"><p></p></td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="about">
+<h1>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h1>
+<p>Here we have some information about the different packages and scaffolds used in the project, information on running them can be found in the <a class="reference internal" href="install.html"><span class="doc std std-doc">install</span></a> section</p>
+<div class="section" id="bluebird">
+<h2>BlueBird<a class="headerlink" href="#bluebird" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Python Version" src="https://img.shields.io/badge/python-3.7-blue" />
+<img alt="License" src="https://img.shields.io/github/license/project-bluebird/bluebird" />
+<img alt="Code Style" src="https://img.shields.io/badge/code%20style-black-000000.svg" />
+<a class="reference external" href="https://github.com/pre-commit/pre-commit"><img alt="pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white" /></a></p>
+<p><a class="reference internal" href="../reference/bluebird-server.html"><span class="doc std std-doc">BlueBird</span></a> provides a common <a class="reference external" href="https://github.com/pallets/flask">Flask</a>-based API to multiple air traffic simulators. In addition to basic communication, it also includes features such as state caching, performance metrics (via <a class="reference external" href="https://github.com/project-bluebird/aviary">Aviary</a>), and logging of scenario data. The main purpose of BlueBird is to provide a common interface to ease the research &amp; development of AI for air traffic control.</p>
+</div>
+<div class="section" id="bluesky">
+<h2>BlueSky<a class="headerlink" href="#bluesky" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/project-bluebird/bluesky">BlueSky</a> is the currently supported open-source simulator.</p>
+</div>
+<div class="section" id="aviary">
+<h2>Aviary<a class="headerlink" href="#aviary" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://travis-ci.com/alan-turing-institute/aviary"><img alt="Build Status" src="https://travis-ci.com/project-bluebird/aviary.svg?branch=develop" /></a></p>
+<p><a class="reference internal" href="../reference/aviary.html"><span class="doc std std-doc">Aviary</span></a> is an air traffic scenario generation package developed as part of the BlueBird project. It aims to provide a platform for agent training, by making a large number of simple, (but non-trivial) air traffic control scenarios available. The package also includes a set of evaluation metrics for measuring performance in the air traffic control challenge.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -400,7 +340,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./atc"
+            path: "./intro"
         },
         predefinedOutput: true
     }
@@ -416,6 +356,24 @@
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="../intro.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Project BlueBird Documentation</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="install.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Installation Instructions</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project BlueBird documentation &#8212; Project BlueBird</title>
+    <title>Project BlueBird Documentation &#8212; Project BlueBird</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -42,7 +42,7 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation instructions" href="intro/install.html" />
+    <link rel="next" title="About" href="intro/about.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -79,12 +79,12 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   Project BlueBird documentation
+   Project BlueBird Documentation
   </a>
  </li>
 </ul>
@@ -95,8 +95,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="intro/about.html">
+   About
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="intro/install.html">
-   Installation instructions
+   Installation Instructions
   </a>
  </li>
 </ul>
@@ -271,7 +276,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#about">
@@ -305,15 +310,20 @@
               <div>
                 
   <div class="section" id="project-bluebird-documentation">
-<h1>Project BlueBird documentation<a class="headerlink" href="#project-bluebird-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Eu laborum reprehenderit incididunt consequat aute ullamco eu Lorem sint. Eu voluptate ea et voluptate. Non cupidatat sint proident dolor minim Lorem laboris in in. Adipisicing ea magna in Lorem aliqua laborum aliqua voluptate Lorem velit duis. Anim in officia enim magna duis. Mollit in ea occaecat ullamco dolore esse aliqua nisi officia ullamco laboris excepteur do.</p>
+<h1>Project BlueBird Documentation<a class="headerlink" href="#project-bluebird-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This is the documentation site for Project BlueBird, a prosperity partnership between The Alan Turing Institute and NATS, supported by EPSRC.</p>
+<p>The research vision for this project is to deliver the world’s first artificial intelligence (AI) system to control a section of airspace in live trials using digital twinning and machine learning technologies, and tools and methods that promote safe and trustworthy use of AI.</p>
+<p>This documentation site will guide users through the use of simulators and the BlueBird API used in this project. It will also discuss air traffic control simulation and scenario generation and evaluation.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The codebase is under heavy development.</p>
 </div>
 <div class="section" id="about">
 <h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
-<p>Ullamco esse ad irure duis. Tempor dolore ut proident ex enim ad occaecat irure cupidatat. Adipisicing minim sit laboris nisi veniam enim dolore aliquip. Magna adipisicing exercitation non ut. Aliqua ullamco et laboris amet minim fugiat consectetur Lorem eu labore culpa Lorem ipsum aliqua. Qui id eu cillum fugiat culpa nulla dolore velit. Nisi id fugiat id culpa reprehenderit laboris.</p>
+<p>The workflow is outlined in the image below.</p>
+<p><img alt="Dependency flow using BlueBird" src="../images/bluebird_dependency_flow.png" /></p>
+<p>The project uses - <a class="reference external" href="https://github.com/alan-turing-institute/bluebird">Bluebird</a> - a Flask-based API that handles communication with multiple air traffic simulators (it currently supports the open source <a class="reference external" href="https://github.com/alan-turing-institute/bluesky">BlueSky</a> simulator and will potentially support the physics-based <a class="reference external" href="https://github.com/project-bluebird/phoenix">Phoenix</a> simulator at a later date)</p>
+<p><a class="reference external" href="https://github.com/project-bluebird/twitcher">Twitcher</a> is a front-end for BlueBird to allow monitoring and communication during simulations. The simulation can also be monitored and modified via the <a class="reference external" href="https://github.com/alan-turing-institute/dodo">Dodo</a> scaffold which provides commands for communicating with BlueBird in Python (PyDodo) and R (rdodo).</p>
 </div>
 <div class="section" id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
@@ -325,7 +335,7 @@
 </div>
 <div class="section" id="get-in-touch">
 <h2>Get in touch<a class="headerlink" href="#get-in-touch" title="Permalink to this headline">¶</a></h2>
-<p>Ea magna exercitation tempor quis ipsum consequat cupidatat ullamco ea. Enim aliquip occaecat cupidatat nulla et qui anim ut. Minim do amet ipsum non fugiat incididunt sit voluptate cupidatat pariatur consectetur velit nostrud tempor. Aliquip elit cupidatat magna laboris enim nisi magna occaecat ad. Occaecat irure labore aute velit esse amet qui minim sunt. Adipisicing elit laboris laboris deserunt laborum duis esse est. Amet magna ut ullamco sint.</p>
+<p>BlueBird has a <a class="reference external" href="https://twitter.com/bluebirdai">twitter</a> account. More information on the project can be found on the <a class="reference external" href="https://www.turing.ac.uk/research/research-projects/project-bluebird-ai-system-air-traffic-control">Turing website</a>.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -364,11 +374,23 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="intro/install.html" title="next page">Installation instructions</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+     <div id="next">
+        <a class="right-next" href="intro/about.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">About</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>

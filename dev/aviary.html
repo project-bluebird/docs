@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -42,7 +42,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -80,12 +80,12 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Project BlueBird documentation
+   Project BlueBird Documentation
   </a>
  </li>
 </ul>
@@ -96,8 +96,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../intro/about.html">
+   About
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../intro/install.html">
-   Installation instructions
+   Installation Instructions
   </a>
  </li>
 </ul>
@@ -269,6 +274,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#development">
+   Development
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests">
+   Tests
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -279,7 +302,25 @@
                 
   <div class="section" id="aviary-developer-s-guide">
 <h1>Aviary developer’s guide<a class="headerlink" href="#aviary-developer-s-guide" title="Permalink to this headline">¶</a></h1>
-<p>Occaecat sunt labore cillum dolore eiusmod qui amet ipsum ullamco enim irure. Culpa qui consectetur sint elit sit irure enim. Incididunt amet consequat commodo ex adipisicing dolore do irure cupidatat ipsum excepteur pariatur ut officia. Duis cillum ea reprehenderit consequat.</p>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<p>Scenario generation algorithms are implemented in aviary as <a class="reference external" href="https://en.wikipedia.org/wiki/Strategy_pattern">strategies</a> in the context of the <code class="docutils literal notranslate"><span class="pre">ScenarioGenerator</span></code> class. The workflow for adding a new algorithms is:</p>
+<ul class="simple">
+<li><p>Create a subclass of <code class="docutils literal notranslate"><span class="pre">ScenarioAlgorithm</span></code> and implement the <code class="docutils literal notranslate"><span class="pre">aircraft_generator</span></code> method. On each call, this method must yield a dictionary representing a new aircraft in the scenario, containing all of the <a class="reference external" href="#aircraft-attributes">attributes listed above</a>.</p></li>
+<li><p>Optionally, add a python script (in the <code class="docutils literal notranslate"><span class="pre">scripts/</span></code> directory) to enable scenario generation from the command line. The existing script <code class="docutils literal notranslate"><span class="pre">overflier_climber.py</span></code> may be used as a template. Add the name of the script to the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> option in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> (to make it callable from the project root directory).</p></li>
+</ul>
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>Run the tests from the project root with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pytest
+</pre></div>
+</div>
+<p>or simply:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
+</pre></div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -305,12 +346,32 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="bluebird-server.html" title="previous page">BlueBird server developer’s guide</a>
-    <a class='right-next' id="next-link" href="../community/about.html" title="next page">About Project BlueBird</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="bluebird-server.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">BlueBird server developer’s guide</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../community/about.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">About Project BlueBird</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>

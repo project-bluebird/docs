@@ -1,15 +1,23 @@
-# Project BlueBird documentation
+# Project BlueBird Documentation
 
-Eu laborum reprehenderit incididunt consequat aute ullamco eu Lorem sint. Eu voluptate ea et voluptate. Non cupidatat sint proident dolor minim Lorem laboris in in. Adipisicing ea magna in Lorem aliqua laborum aliqua voluptate Lorem velit duis. Anim in officia enim magna duis. Mollit in ea occaecat ullamco dolore esse aliqua nisi officia ullamco laboris excepteur do.
+This is the documentation site for Project BlueBird, a prosperity partnership between The Alan Turing Institute and NATS, supported by EPSRC.
+
+The research vision for this project is to deliver the world’s first artificial intelligence (AI) system to control a section of airspace in live trials using digital twinning and machine learning technologies, and tools and methods that promote safe and trustworthy use of AI.
+
+This documentation site will guide users through the use of simulators and the BlueBird API used in this project. It will also discuss air traffic control simulation and scenario generation and evaluation. 
 
 :::{note}
 The codebase is under heavy development.
 :::
 
 ## About 
+The workflow is outlined in the image below. 
 
-Ullamco esse ad irure duis. Tempor dolore ut proident ex enim ad occaecat irure cupidatat. Adipisicing minim sit laboris nisi veniam enim dolore aliquip. Magna adipisicing exercitation non ut. Aliqua ullamco et laboris amet minim fugiat consectetur Lorem eu labore culpa Lorem ipsum aliqua. Qui id eu cillum fugiat culpa nulla dolore velit. Nisi id fugiat id culpa reprehenderit laboris.
+![Dependency flow using BlueBird](../images/bluebird_dependency_flow.png)
 
+The project uses - [Bluebird](https://github.com/alan-turing-institute/bluebird) - a Flask-based API that handles communication with multiple air traffic simulators (it currently supports the open source [BlueSky](https://github.com/alan-turing-institute/bluesky) simulator and will potentially support the physics-based [Phoenix](https://github.com/project-bluebird/phoenix) simulator at a later date)
+
+[Twitcher](https://github.com/project-bluebird/twitcher) is a front-end for BlueBird to allow monitoring and communication during simulations. The simulation can also be monitored and modified via the [Dodo](https://github.com/alan-turing-institute/dodo) scaffold which provides commands for communicating with BlueBird in Python (PyDodo) and R (rdodo).
 
 ## License
 
@@ -21,4 +29,4 @@ Aliquip et ex ex esse voluptate enim ea mollit ea excepteur et velit. Esse ex su
 
 ## Get in touch
 
-Ea magna exercitation tempor quis ipsum consequat cupidatat ullamco ea. Enim aliquip occaecat cupidatat nulla et qui anim ut. Minim do amet ipsum non fugiat incididunt sit voluptate cupidatat pariatur consectetur velit nostrud tempor. Aliquip elit cupidatat magna laboris enim nisi magna occaecat ad. Occaecat irure labore aute velit esse amet qui minim sunt. Adipisicing elit laboris laboris deserunt laborum duis esse est. Amet magna ut ullamco sint.
+BlueBird has a [twitter](https://twitter.com/bluebirdai) account. More information on the project can be found on the [Turing website](https://www.turing.ac.uk/research/research-projects/project-bluebird-ai-system-air-traffic-control).  

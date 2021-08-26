@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Installation instructions &#8212; Project BlueBird</title>
+    <title>Installation Instructions &#8212; Project BlueBird</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -42,7 +42,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Running an airspace simulation" href="../guides/digital-twin.html" />
-    <link rel="prev" title="Project BlueBird documentation" href="../intro.html" />
+    <link rel="prev" title="About" href="about.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -80,12 +80,12 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Project BlueBird documentation
+   Project BlueBird Documentation
   </a>
  </li>
 </ul>
@@ -95,9 +95,14 @@
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about.html">
+   About
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Installation instructions
+   Installation Instructions
   </a>
  </li>
 </ul>
@@ -269,6 +274,58 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quick-start-using-simurgh">
+   Quick Start Using Simurgh
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clone-the-simurgh-repository">
+     1. Clone the Simurgh repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-bluebird-bluesky-twicher-with-docker">
+     2. Run BlueBird, BlueSky &amp; Twicher with Docker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-pydodo">
+     3. Install PyDodo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-usage">
+     4. Example usage
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-from-source">
+   Running from Source
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bluebird-and-bluesky">
+     BlueBird and BlueSky
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#twitcher">
+     Twitcher
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -278,8 +335,117 @@
               <div>
                 
   <div class="section" id="installation-instructions">
-<h1>Installation instructions<a class="headerlink" href="#installation-instructions" title="Permalink to this headline">¶</a></h1>
-<p>Reprehenderit cillum reprehenderit adipisicing ex labore consectetur ad nulla est voluptate est id. Adipisicing dolor laboris consectetur quis nisi reprehenderit laboris duis labore est quis nisi. Non consectetur dolor sit quis. Commodo duis ipsum laborum velit exercitation magna duis adipisicing incididunt sunt.</p>
+<h1>Installation Instructions<a class="headerlink" href="#installation-instructions" title="Permalink to this headline">¶</a></h1>
+<p>With an air traffic control (ATC) simulator (e.g., BlueSky) and BlueBird running, one can observe and interact with the simulation via BlueBird using Python (PyDodo), R (rdodo) or Twitcher. The Aviary package allows one to synthetically generate ATC scenarios of increasing complexity to train agents on and provides metrics to score performance.</p>
+<div class="section" id="quick-start-using-simurgh">
+<h2>Quick Start Using Simurgh<a class="headerlink" href="#quick-start-using-simurgh" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="clone-the-simurgh-repository">
+<h3>1. Clone the Simurgh repository<a class="headerlink" href="#clone-the-simurgh-repository" title="Permalink to this headline">¶</a></h3>
+<p>All commands described in the subsequent sections are meant to be run from inside the repo. After cloning the repo make sure to:</p>
+</div>
+<div class="section" id="run-bluebird-bluesky-twicher-with-docker">
+<h3>2. Run BlueBird, BlueSky &amp; Twicher with Docker<a class="headerlink" href="#run-bluebird-bluesky-twicher-with-docker" title="Permalink to this headline">¶</a></h3>
+<p>Make sure you have <a class="reference external" href="https://www.docker.com/get-started">Docker</a> installed.</p>
+<p>If you have Docker installed and have cloned this repo then run:</p>
+<p>This pulls down the pre-built images from DockerHub and
+starts each container in the right order.</p>
+<p>Then all one needs to do is go to
+<code class="docutils literal notranslate"><span class="pre">http://localhost:8080</span></code> where Twitcher will be running.</p>
+<p><em>Note</em>: If this is the first time running this command, it may take some time to
+download and extract all the layers involved.</p>
+<p>Then to close this, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span>
+</pre></div>
+</div>
+<p>This will shutdown the running instances.</p>
+</div>
+<div class="section" id="install-pydodo">
+<h3>3. Install PyDodo<a class="headerlink" href="#install-pydodo" title="Permalink to this headline">¶</a></h3>
+<p>PyDodo is the Python implementation of Dodo.</p>
+<p>To install:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/alan-turing-institute/dodo.git
+pip install dodo/Pydodo
+</pre></div>
+</div>
+<p>If BlueSky and BlueBird are running (see previous step), then one can communicate with the simulator (via
+BlueBird) using PyDodo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pydodo</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pydodo</span><span class="o">.</span><span class="n">reset_simulation</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>Success!</p>
+<p>See the Dodo <a class="reference external" href="https://github.com/alan-turing-institute/dodo/blob/master/Specification.md">specification document</a> for a detailed overview of the supported commands.</p>
+</div>
+<div class="section" id="example-usage">
+<h3>4. Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../intro.html"><span class="doc std std-doc">example notebook TODO_LINK</span></a> shows how to interact with the simulation using PyDodo.</p>
+<p>To run the example, launch the notebook using the command below (this will automatically open the notebook in your browser):</p>
+</div>
+</div>
+<div class="section" id="running-from-source">
+<h2>Running from Source<a class="headerlink" href="#running-from-source" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bluebird-and-bluesky">
+<h3>BlueBird and BlueSky<a class="headerlink" href="#bluebird-and-bluesky" title="Permalink to this headline">¶</a></h3>
+<p>To run Bluebird with BlueSky from source, first clone both repos.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/project-bluebird/bluesky.git
+git clone https://github.com/project-bluebird/bluebird.git
+</pre></div>
+</div>
+<p>Open two terminals. In the first one, install and run BlueSky:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Bluesky</span>
+<span class="nb">cd</span> bluesky
+./install.sh --headless
+
+<span class="c1"># Run Bluesky</span>
+<span class="nb">source</span> venv/bin/activate
+python BlueSky.py --headless
+</pre></div>
+</div>
+<p>In your second terminal, install and run Bluebird:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Bluebird</span>
+<span class="nb">cd</span> bluebird
+./install.sh
+
+<span class="c1"># Run Bluebird, connected to Bluesky</span>
+<span class="nb">source</span> venv/bin/activate
+python ./run.py
+</pre></div>
+</div>
+<p>Bluebird should now be up and running, and listening for API requests on <a class="reference external" href="http://0.0.0.0:5001/">http://0.0.0.0:5001/</a>.</p>
+<p>If you are using a version of Aviary that isn’t the on the develop branch, then edit the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file in bluebird to point to the appropriate branch, or compile a version locally in the aviary repository root directory via</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install .
+</pre></div>
+</div>
+<p>Developer install:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -e .
+</pre></div>
+</div>
+<p>To verify the simulator is working, navigate to <a class="reference external" href="http://0.0.0.0:5001/api/v2/siminfo">http://0.0.0.0:5001/api/v2/siminfo</a>. This simple GET request returns a JSON Object containing information about the running simulator (BlueSky). You can then try out the other <a class="reference external" href="#api-endpoints">API endpoints</a>.</p>
+<p>Note that BlueBird can be run with the following options:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ./run.py <span class="o">[</span>--sim-host<span class="o">=</span>&lt;address&gt;<span class="o">]</span> <span class="o">[</span>--sim-mode<span class="o">=</span>&lt;mode&gt;<span class="o">]</span> <span class="o">[</span>--reset-sim<span class="o">]</span> <span class="o">[</span>--log-rate<span class="o">=</span>&lt;rate&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">--dev</span></code> option will also install dependencies needed for developing BlueBird</p></li>
+<li><p>If you need to connect to BlueSky on another host (i.e. on a VM), you may pass the <code class="docutils literal notranslate"><span class="pre">--sim-host</span></code> option to <a class="reference external" href="http://run.py">run.py</a>.</p></li>
+<li><p>If passed, <code class="docutils literal notranslate"><span class="pre">--reset-sim</span></code> will reset the simulation on connection</p></li>
+<li><p>If passed, <code class="docutils literal notranslate"><span class="pre">--sim-mode</span></code> will start the simulation in a specific <span class="xref myst">mode</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="twitcher">
+<h3>Twitcher<a class="headerlink" href="#twitcher" title="Permalink to this headline">¶</a></h3>
+<p>Twitcher is used to visualise the progress of sectors and scenarios, including custom sectors defined in Aviary.
+The recommended way to run Twitcher is via a docker container. Simply clone the <a class="reference external" href="https://github.com/project-bluebird/twitcher">repository</a> and run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">--</span><span class="n">build</span>
+</pre></div>
+</div>
+<p>Then go to <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a> in your browser.</p>
+<p>Twitcher assumes that BlueSky and BlueBird are already running on the same machine.</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -305,12 +471,32 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Project BlueBird documentation</a>
-    <a class='right-next' id="next-link" href="../guides/digital-twin.html" title="next page">Running an airspace simulation</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="about.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">About</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../guides/digital-twin.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Running an airspace simulation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
