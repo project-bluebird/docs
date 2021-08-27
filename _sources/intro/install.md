@@ -199,9 +199,11 @@ True
 VJ159          A346                 40000          36089.238845           215        0  49.899841    -0.1275                   40000               0
 VJ405          B77W                 20000          20000.000000           187      180  53.152652    -0.1275                   40000               0
 ```
-And so on, the list of pydodo commands previously mentioned can be used to fully explore the simulation.
 
 As with the Twitcher interface, we have uploaded two aircraft, with IDs of 'VJ159' and 'VJ405', we can see their longitude, latitude and headings along with other useful information.
+
+Again, see the Dodo [specification document](https://github.com/alan-turing-institute/dodo/blob/master/Specification.md) for a detailed overview of the supported commands.
+
 
 #### 2.4 Aviary
 To install aviary locally, in a third terminal clone the development repo
