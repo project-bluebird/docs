@@ -430,7 +430,7 @@ As Docker has already been launched, step 1.1 can be omitted, and the instructio
 <h2>Running from Source<a class="headerlink" href="#running-from-source" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="bluebird-and-bluesky">
 <h3>2.1 BlueBird and BlueSky<a class="headerlink" href="#bluebird-and-bluesky" title="Permalink to this headline">¶</a></h3>
-<p>To run Bluebird with BlueSky from source, first clone both repos.</p>
+<p>To run Bluebird with BlueSky from source, first clone both repos. You will need Python &gt; 3.7 to run this.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/project-bluebird/bluesky.git
 git clone https://github.com/project-bluebird/bluebird.git
 </pre></div>
@@ -452,10 +452,22 @@ python BlueSky.py --headless
 
 <span class="c1"># Run Bluebird, connected to Bluesky</span>
 <span class="nb">source</span> venv/bin/activate
-python ./run.py
+python run.py
 </pre></div>
 </div>
-<p>Bluebird should now be up and running, and listening for API requests on <a class="reference external" href="http://0.0.0.0:5001/">http://0.0.0.0:5001/</a>.</p>
+<p>To verify the simulator is working, navigate to <a class="reference external" href="http://0.0.0.0:5001/api/v2/siminfo">http://0.0.0.0:5001/api/v2/siminfo</a>. This simple GET request returns a JSON Object containing information about the running simulator (BlueSky).</p>
+<p><img alt="BlueBird Simulation Information example" src="../_images/simulator_information_example.png" />
+You can then try out the other <a class="reference external" href="#api-endpoints">API endpoints</a>.</p>
+<p>Note that BlueBird can be run with the following options:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ./run.py <span class="o">[</span>--sim-host<span class="o">=</span>&lt;address&gt;<span class="o">]</span> <span class="o">[</span>--sim-mode<span class="o">=</span>&lt;mode&gt;<span class="o">]</span> <span class="o">[</span>--reset-sim<span class="o">]</span> <span class="o">[</span>--log-rate<span class="o">=</span>&lt;rate&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">--dev</span></code> option will also install dependencies needed for developing BlueBird</p></li>
+<li><p>If you need to connect to BlueSky on another host (i.e. on a VM), you may pass the <code class="docutils literal notranslate"><span class="pre">--sim-host</span></code> option to <a class="reference external" href="http://run.py">run.py</a>.</p></li>
+<li><p>If passed, <code class="docutils literal notranslate"><span class="pre">--reset-sim</span></code> will reset the simulation on connection</p></li>
+<li><p>If passed, <code class="docutils literal notranslate"><span class="pre">--sim-mode</span></code> will start the simulation in a specific <span class="xref myst">mode</span>.</p></li>
+</ul>
 </div>
 <div class="section" id="aviary">
 <h3>2.2 Aviary<a class="headerlink" href="#aviary" title="Permalink to this headline">¶</a></h3>
@@ -468,17 +480,7 @@ git checkout develop
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install .
 </pre></div>
 </div>
-<p>To verify the simulator is working, navigate to <a class="reference external" href="http://0.0.0.0:5001/api/v2/siminfo">http://0.0.0.0:5001/api/v2/siminfo</a>. This simple GET request returns a JSON Object containing information about the running simulator (BlueSky). You can then try out the other <a class="reference external" href="#api-endpoints">API endpoints</a>.</p>
-<p>Note that BlueBird can be run with the following options:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ./run.py <span class="o">[</span>--sim-host<span class="o">=</span>&lt;address&gt;<span class="o">]</span> <span class="o">[</span>--sim-mode<span class="o">=</span>&lt;mode&gt;<span class="o">]</span> <span class="o">[</span>--reset-sim<span class="o">]</span> <span class="o">[</span>--log-rate<span class="o">=</span>&lt;rate&gt;<span class="o">]</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>the <code class="docutils literal notranslate"><span class="pre">--dev</span></code> option will also install dependencies needed for developing BlueBird</p></li>
-<li><p>If you need to connect to BlueSky on another host (i.e. on a VM), you may pass the <code class="docutils literal notranslate"><span class="pre">--sim-host</span></code> option to <a class="reference external" href="http://run.py">run.py</a>.</p></li>
-<li><p>If passed, <code class="docutils literal notranslate"><span class="pre">--reset-sim</span></code> will reset the simulation on connection</p></li>
-<li><p>If passed, <code class="docutils literal notranslate"><span class="pre">--sim-mode</span></code> will start the simulation in a specific <span class="xref myst">mode</span>.</p></li>
-</ul>
+<p>Note this is not a necessary step if you are running simple scenarios</p>
 </div>
 <div class="section" id="twitcher">
 <h3>2.3 Twitcher<a class="headerlink" href="#twitcher" title="Permalink to this headline">¶</a></h3>
@@ -488,8 +490,9 @@ git checkout develop
 <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">--</span><span class="n">build</span>
 </pre></div>
 </div>
-<p>Then go to <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a> in your browser.</p>
+<p>Then go to <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a> in your browser to see the Twitcher interface with no scenario or sectors added.</p>
 <p>Twitcher assumes that BlueSky and BlueBird are already running on the same machine.</p>
+<p><img alt="Twitcher blank interface" src="../_images/twitcher_blank_interface.png" /></p>
 </div>
 </div>
 </div>

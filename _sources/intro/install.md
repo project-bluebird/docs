@@ -107,7 +107,7 @@ This will shutdown the running instances of Twitcher, BlueBird and BlueSky.
  ## Running from Source
 
  #### 2.1 BlueBird and BlueSky
-To run Bluebird with BlueSky from source, first clone both repos.
+To run Bluebird with BlueSky from source, first clone both repos. You will need Python > 3.7 to run this.
 
 ```bash
 git clone https://github.com/project-bluebird/bluesky.git
@@ -135,24 +135,13 @@ cd bluebird
 
 # Run Bluebird, connected to Bluesky
 source venv/bin/activate
-python ./run.py
+python run.py
 ```
 
-Bluebird should now be up and running, and listening for API requests on http://0.0.0.0:5001/.
+To verify the simulator is working, navigate to http://0.0.0.0:5001/api/v2/siminfo. This simple GET request returns a JSON Object containing information about the running simulator (BlueSky). 
 
-#### 2.2 Aviary
-To install aviary locally, in a third terminal clone the development repo
-```bash
-git clone git@github.com:project-bluebird/aviary.git
-git checkout develop
-```
-Install the development branch (or any other appropriate branch)
-
-```bash
-pip install .
-```
-
-To verify the simulator is working, navigate to http://0.0.0.0:5001/api/v2/siminfo. This simple GET request returns a JSON Object containing information about the running simulator (BlueSky). You can then try out the other [API endpoints](#api-endpoints).
+![BlueBird Simulation Information example](../images/simulator_information_example.png)
+You can then try out the other [API endpoints](#api-endpoints).
 
 Note that BlueBird can be run with the following options:
 
@@ -165,6 +154,20 @@ python ./run.py [--sim-host=<address>] [--sim-mode=<mode>] [--reset-sim] [--log-
 - If passed, `--reset-sim` will reset the simulation on connection
 - If passed, `--sim-mode` will start the simulation in a specific [mode](docs/SimulatorModes.md).
 
+
+#### 2.2 Aviary
+To install aviary locally, in a third terminal clone the development repo
+```bash
+git clone git@github.com:project-bluebird/aviary.git
+git checkout develop
+```
+Install the development branch (or any other appropriate branch)
+
+```bash
+pip install .
+```
+Note this is not a necessary step if you are running simple scenarios
+
 #### 2.3 Twitcher
  
 The recommended way to run Twitcher is still via a docker container. Simply clone the [repository](https://github.com/project-bluebird/twitcher) and build the container.
@@ -175,7 +178,9 @@ cd twitcher
 docker-compose up --build
 ```
 
-Then go to [http://localhost:8080/](http://localhost:8080/) in your browser.
+Then go to [http://localhost:8080/](http://localhost:8080/) in your browser to see the Twitcher interface with no scenario or sectors added.
 
 Twitcher assumes that BlueSky and BlueBird are already running on the same machine.
+
+![Twitcher blank interface](../images/twitcher_blank_interface.png)
 
