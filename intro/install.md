@@ -1,9 +1,22 @@
 # Installation Instructions
-With an air traffic control (ATC) simulator (e.g., BlueSky) and BlueBird running, one can observe and interact with the simulation via BlueBird using Python (PyDodo), R (rdodo) or Twitcher. The Aviary package allows one to synthetically generate ATC scenarios of increasing complexity to train agents on and provides metrics to score performance.
+In order to run air traffic simulations, the following requirements need to be met:
 
-## Quick Start Using Simurgh
-### 1. Clone the Simurgh repository
+- [ ] Have an instance of an ATC simulator running - for example BlueSky
+- [ ] Have an instance of the BlueBird API running
+- [ ] Have a way to interact with the simulation running either via
+    - [ ] Twitcher 
+    or
+    - [ ] pyDodo or rdodo via the command line
 
+Additionally if user-generated scenarios or sectors are being run then it is useful to:
+- [ ] Have an instance of Aviary running for scenario generation and to provide metrics to score performance.
+
+There are several ways this can be achieved, either via a Docker container or by compiling from source. Both methods will be described here.
+
+## Using a Docker container
+In the first instance the required enviroment can be initiated using a Docker container and a repository set up in the first phase of the project. This repository is known as Simugh.
+
+#### 1.1 Clone the Simurgh repository
 
 ```{bash}
 git clone https://github.com/alan-turing-institute/simurgh.git
@@ -15,11 +28,11 @@ All commands described in the subsequent sections are meant to be run from insid
 cd simurgh
 ```
 
-### 2. Run BlueBird, BlueSky & Twicher with Docker
+#### 1.2 Run BlueSky, BlueBird, & Twicher with Docker
 
 Make sure you have [Docker](https://www.docker.com/get-started) installed.
 
-If you have Docker installed and have cloned this repo then run:
+Once you have Docker installed and have cloned this repo then run:
 
 ```{bash}
 docker-compose up -d
@@ -31,22 +44,18 @@ starts each container in the right order.
 Then all one needs to do is go to
 `http://localhost:8080` where Twitcher will be running.
 
+
 _Note_: If this is the first time running this command, it may take some time to
 download and extract all the layers involved.
 
-Then to close this, run:
+Users can communicate with the simulation via Twitcher exclusively if they wish to, or can also communicate with the simulation via PyDodo
 
-```
-docker-compose down
-```
 
-This will shutdown the running instances.
-
-### 3. Install PyDodo
+#### 1.3 Install PyDodo
 
 PyDodo is the Python implementation of Dodo.
 
-To install:
+To install, open a terminal window:
 
 ```bash
 git clone https://github.com/alan-turing-institute/dodo.git
@@ -68,7 +77,7 @@ Success!
 
 See the Dodo [specification document](https://github.com/alan-turing-institute/dodo/blob/master/Specification.md) for a detailed overview of the supported commands.
 
-### 4. Example usage
+#### 1.4 Example usage
 
 The [example notebook TODO_LINK]() shows how to interact with the simulation using PyDodo.
 
@@ -78,9 +87,20 @@ To run the example, launch the notebook using the command below (this will autom
  jupyter lab <path-to-example>.ipynb
  ```
 
+
+
+Once you are finished with the simulation, Docker can be closed via:
+
+```
+docker-compose down
+```
+
+This will shutdown the running instances.
+
+
  ## Running from Source
 
- ### BlueBird and BlueSky
+ #### 2.1 BlueBird and BlueSky
 To run Bluebird with BlueSky from source, first clone both repos.
 
 ```bash
@@ -114,16 +134,16 @@ python ./run.py
 
 Bluebird should now be up and running, and listening for API requests on http://0.0.0.0:5001/.
 
-
-If you are using a version of Aviary that isn't the on the develop branch, then edit the `requirements.txt` file in bluebird to point to the appropriate branch, or compile a version locally in the aviary repository root directory via
+#### 2.2 Aviary
+To install aviary locally, in a third terminal clone the development repo
+```bash
+git clone git@github.com:project-bluebird/aviary.git
+git checkout develop
+```
+Install the development branch (or any other appropriate branch)
 
 ```bash
 pip install .
-```
-
-Developer install:
-```bash
-pip install -e .
 ```
 
 To verify the simulator is working, navigate to http://0.0.0.0:5001/api/v2/siminfo. This simple GET request returns a JSON Object containing information about the running simulator (BlueSky). You can then try out the other [API endpoints](#api-endpoints).
@@ -139,12 +159,13 @@ python ./run.py [--sim-host=<address>] [--sim-mode=<mode>] [--reset-sim] [--log-
 - If passed, `--reset-sim` will reset the simulation on connection
 - If passed, `--sim-mode` will start the simulation in a specific [mode](docs/SimulatorModes.md).
 
-### Twitcher
-
-Twitcher is used to visualise the progress of sectors and scenarios, including custom sectors defined in Aviary. 
-The recommended way to run Twitcher is via a docker container. Simply clone the [repository](https://github.com/project-bluebird/twitcher) and run
+#### 2.3 Twitcher
+ 
+The recommended way to run Twitcher is still via a docker container. Simply clone the [repository](https://github.com/project-bluebird/twitcher) and build the container.
 
 ```
+git clone git@github.com:project-bluebird/twitcher.git
+cd twitcher
 docker-compose up --build
 ```
 
