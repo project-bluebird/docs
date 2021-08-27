@@ -280,28 +280,28 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quick-start-using-simurgh">
-   Quick Start Using Simurgh
+  <a class="reference internal nav-link" href="#using-a-docker-container">
+   Using a Docker container
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#clone-the-simurgh-repository">
-     1. Clone the Simurgh repository
+     1.1 Clone the Simurgh repository
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-bluebird-bluesky-twicher-with-docker">
-     2. Run BlueBird, BlueSky &amp; Twicher with Docker
+    <a class="reference internal nav-link" href="#run-bluesky-bluebird-twicher-with-docker">
+     1.2 Run BlueSky, BlueBird, &amp; Twicher with Docker
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#install-pydodo">
-     3. Install PyDodo
+     1.3 Install PyDodo
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-usage">
-     4. Example usage
+     1.4 Example usage
     </a>
    </li>
   </ul>
@@ -313,12 +313,17 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bluebird-and-bluesky">
-     BlueBird and BlueSky
+     2.1 BlueBird and BlueSky
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aviary">
+     2.2 Aviary
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#twitcher">
-     Twitcher
+     2.3 Twitcher
     </a>
    </li>
   </ul>
@@ -336,33 +341,46 @@
                 
   <div class="section" id="installation-instructions">
 <h1>Installation Instructions<a class="headerlink" href="#installation-instructions" title="Permalink to this headline">¶</a></h1>
-<p>With an air traffic control (ATC) simulator (e.g., BlueSky) and BlueBird running, one can observe and interact with the simulation via BlueBird using Python (PyDodo), R (rdodo) or Twitcher. The Aviary package allows one to synthetically generate ATC scenarios of increasing complexity to train agents on and provides metrics to score performance.</p>
-<div class="section" id="quick-start-using-simurgh">
-<h2>Quick Start Using Simurgh<a class="headerlink" href="#quick-start-using-simurgh" title="Permalink to this headline">¶</a></h2>
+<p>In order to run air traffic simulations, the following requirements need to be met:</p>
+<ul class="simple">
+<li><p>[ ] Have an instance of an ATC simulator running - for example BlueSky</p></li>
+<li><p>[ ] Have an instance of the BlueBird API running</p></li>
+<li><p>[ ] Have a way to interact with the simulation running either via</p>
+<ul>
+<li><p>[ ] Twitcher
+or</p></li>
+<li><p>[ ] pyDodo or rdodo via the command line</p></li>
+</ul>
+</li>
+</ul>
+<p>Additionally if user-generated scenarios or sectors are being run then it is useful to:</p>
+<ul class="simple">
+<li><p>[ ] Have an instance of Aviary running for scenario generation and to provide metrics to score performance.</p></li>
+</ul>
+<p>There are several ways this can be achieved, either via a Docker container or by compiling from source. Both methods will be described here.</p>
+<div class="section" id="using-a-docker-container">
+<h2>Using a Docker container<a class="headerlink" href="#using-a-docker-container" title="Permalink to this headline">¶</a></h2>
+<p>In the first instance the required enviroment can be initiated using a Docker container and a repository set up in the first phase of the project. This repository is known as Simugh.</p>
 <div class="section" id="clone-the-simurgh-repository">
-<h3>1. Clone the Simurgh repository<a class="headerlink" href="#clone-the-simurgh-repository" title="Permalink to this headline">¶</a></h3>
+<h3>1.1 Clone the Simurgh repository<a class="headerlink" href="#clone-the-simurgh-repository" title="Permalink to this headline">¶</a></h3>
 <p>All commands described in the subsequent sections are meant to be run from inside the repo. After cloning the repo make sure to:</p>
 </div>
-<div class="section" id="run-bluebird-bluesky-twicher-with-docker">
-<h3>2. Run BlueBird, BlueSky &amp; Twicher with Docker<a class="headerlink" href="#run-bluebird-bluesky-twicher-with-docker" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="run-bluesky-bluebird-twicher-with-docker">
+<h3>1.2 Run BlueSky, BlueBird, &amp; Twicher with Docker<a class="headerlink" href="#run-bluesky-bluebird-twicher-with-docker" title="Permalink to this headline">¶</a></h3>
 <p>Make sure you have <a class="reference external" href="https://www.docker.com/get-started">Docker</a> installed.</p>
-<p>If you have Docker installed and have cloned this repo then run:</p>
+<p>Once you have Docker installed and have cloned this repo then run:</p>
 <p>This pulls down the pre-built images from DockerHub and
 starts each container in the right order.</p>
 <p>Then all one needs to do is go to
 <code class="docutils literal notranslate"><span class="pre">http://localhost:8080</span></code> where Twitcher will be running.</p>
 <p><em>Note</em>: If this is the first time running this command, it may take some time to
 download and extract all the layers involved.</p>
-<p>Then to close this, run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span>
-</pre></div>
-</div>
-<p>This will shutdown the running instances.</p>
+<p>Users can communicate with the simulation via Twitcher exclusively if they wish to, or can also communicate with the simulation via PyDodo</p>
 </div>
 <div class="section" id="install-pydodo">
-<h3>3. Install PyDodo<a class="headerlink" href="#install-pydodo" title="Permalink to this headline">¶</a></h3>
+<h3>1.3 Install PyDodo<a class="headerlink" href="#install-pydodo" title="Permalink to this headline">¶</a></h3>
 <p>PyDodo is the Python implementation of Dodo.</p>
-<p>To install:</p>
+<p>To install, open a terminal window:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/alan-turing-institute/dodo.git
 pip install dodo/Pydodo
 </pre></div>
@@ -380,15 +398,20 @@ BlueBird) using PyDodo:</p>
 <p>See the Dodo <a class="reference external" href="https://github.com/alan-turing-institute/dodo/blob/master/Specification.md">specification document</a> for a detailed overview of the supported commands.</p>
 </div>
 <div class="section" id="example-usage">
-<h3>4. Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h3>
+<h3>1.4 Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../intro.html"><span class="doc std std-doc">example notebook TODO_LINK</span></a> shows how to interact with the simulation using PyDodo.</p>
 <p>To run the example, launch the notebook using the command below (this will automatically open the notebook in your browser):</p>
+<p>Once you are finished with the simulation, Docker can be closed via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span>
+</pre></div>
+</div>
+<p>This will shutdown the running instances.</p>
 </div>
 </div>
 <div class="section" id="running-from-source">
 <h2>Running from Source<a class="headerlink" href="#running-from-source" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="bluebird-and-bluesky">
-<h3>BlueBird and BlueSky<a class="headerlink" href="#bluebird-and-bluesky" title="Permalink to this headline">¶</a></h3>
+<h3>2.1 BlueBird and BlueSky<a class="headerlink" href="#bluebird-and-bluesky" title="Permalink to this headline">¶</a></h3>
 <p>To run Bluebird with BlueSky from source, first clone both repos.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/project-bluebird/bluesky.git
 git clone https://github.com/project-bluebird/bluebird.git
@@ -415,12 +438,16 @@ python ./run.py
 </pre></div>
 </div>
 <p>Bluebird should now be up and running, and listening for API requests on <a class="reference external" href="http://0.0.0.0:5001/">http://0.0.0.0:5001/</a>.</p>
-<p>If you are using a version of Aviary that isn’t the on the develop branch, then edit the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file in bluebird to point to the appropriate branch, or compile a version locally in the aviary repository root directory via</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install .
+</div>
+<div class="section" id="aviary">
+<h3>2.2 Aviary<a class="headerlink" href="#aviary" title="Permalink to this headline">¶</a></h3>
+<p>To install aviary locally, in a third terminal clone the development repo</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:project-bluebird/aviary.git
+git checkout develop
 </pre></div>
 </div>
-<p>Developer install:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -e .
+<p>Install the development branch (or any other appropriate branch)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install .
 </pre></div>
 </div>
 <p>To verify the simulator is working, navigate to <a class="reference external" href="http://0.0.0.0:5001/api/v2/siminfo">http://0.0.0.0:5001/api/v2/siminfo</a>. This simple GET request returns a JSON Object containing information about the running simulator (BlueSky). You can then try out the other <a class="reference external" href="#api-endpoints">API endpoints</a>.</p>
@@ -436,10 +463,11 @@ python ./run.py
 </ul>
 </div>
 <div class="section" id="twitcher">
-<h3>Twitcher<a class="headerlink" href="#twitcher" title="Permalink to this headline">¶</a></h3>
-<p>Twitcher is used to visualise the progress of sectors and scenarios, including custom sectors defined in Aviary.
-The recommended way to run Twitcher is via a docker container. Simply clone the <a class="reference external" href="https://github.com/project-bluebird/twitcher">repository</a> and run</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">--</span><span class="n">build</span>
+<h3>2.3 Twitcher<a class="headerlink" href="#twitcher" title="Permalink to this headline">¶</a></h3>
+<p>The recommended way to run Twitcher is still via a docker container. Simply clone the <a class="reference external" href="https://github.com/project-bluebird/twitcher">repository</a> and build the container.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">project</span><span class="o">-</span><span class="n">bluebird</span><span class="o">/</span><span class="n">twitcher</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">twitcher</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">--</span><span class="n">build</span>
 </pre></div>
 </div>
 <p>Then go to <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a> in your browser.</p>
