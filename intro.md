@@ -15,7 +15,7 @@ The workflow is outlined in the image below.
 
 ![Dependency flow using BlueBird](/images/bluebird_dependency_flow.png)
 
-The project uses - [Bluebird](https://github.com/alan-turing-institute/bluebird) - a Flask-based API that handles communication with multiple air traffic simulators (it currently supports the open source [BlueSky](https://github.com/alan-turing-institute/bluesky) simulator and will potentially support the physics-based [Phoenix](https://github.com/project-bluebird/phoenix) simulator at a later date.
+The project uses - [Bluebird](https://github.com/alan-turing-institute/bluebird) - a Flask-based API that handles communication with multiple air traffic simulators. It currently supports the open source [BlueSky](https://github.com/alan-turing-institute/bluesky) simulator and will potentially support the physics-based [Phoenix](https://github.com/project-bluebird/phoenix) simulator at a later date.
 
 [Twitcher](https://github.com/project-bluebird/twitcher) is a front-end for BlueBird to allow monitoring and communication during simulations. The simulation can also be monitored and modified via the [Dodo](https://github.com/alan-turing-institute/dodo) scaffold which provides commands for communicating with BlueBird in Python (PyDodo) and R (rdodo).
 
