@@ -317,13 +317,30 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aviary">
-     2.2 Aviary
+    <a class="reference internal nav-link" href="#twitcher">
+     2.2 Twitcher
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#twitcher">
-     2.3 Twitcher
+    <a class="reference internal nav-link" href="#upload-scenarios-and-sectors">
+     2.3 Upload Scenarios and Sectors
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#via-twitcher">
+       2.3.1 Via Twitcher
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#via-the-command-line">
+       2.3.2 Via the command line
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aviary">
+     2.4 Aviary
     </a>
    </li>
   </ul>
@@ -430,7 +447,7 @@ As Docker has already been launched, step 1.1 can be omitted, and the instructio
 <h2>Running from Source<a class="headerlink" href="#running-from-source" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="bluebird-and-bluesky">
 <h3>2.1 BlueBird and BlueSky<a class="headerlink" href="#bluebird-and-bluesky" title="Permalink to this headline">¶</a></h3>
-<p>To run Bluebird with BlueSky from source, first clone both repos. You will need Python &gt; 3.7 to run this.</p>
+<p>To run Bluebird with BlueSky from source, first clone both repos. You will need Python&gt;=3.7 to run this.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/project-bluebird/bluesky.git
 git clone https://github.com/project-bluebird/bluebird.git
 </pre></div>
@@ -469,21 +486,8 @@ You can then try out the other <a class="reference external" href="#api-endpoint
 <li><p>If passed, <code class="docutils literal notranslate"><span class="pre">--sim-mode</span></code> will start the simulation in a specific <span class="xref myst">mode</span>.</p></li>
 </ul>
 </div>
-<div class="section" id="aviary">
-<h3>2.2 Aviary<a class="headerlink" href="#aviary" title="Permalink to this headline">¶</a></h3>
-<p>To install aviary locally, in a third terminal clone the development repo</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:project-bluebird/aviary.git
-git checkout develop
-</pre></div>
-</div>
-<p>Install the development branch (or any other appropriate branch)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install .
-</pre></div>
-</div>
-<p>Note this is not a necessary step if you are running simple scenarios</p>
-</div>
 <div class="section" id="twitcher">
-<h3>2.3 Twitcher<a class="headerlink" href="#twitcher" title="Permalink to this headline">¶</a></h3>
+<h3>2.2 Twitcher<a class="headerlink" href="#twitcher" title="Permalink to this headline">¶</a></h3>
 <p>The recommended way to run Twitcher is still via a docker container. Simply clone the <a class="reference external" href="https://github.com/project-bluebird/twitcher">repository</a> and build the container.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">project</span><span class="o">-</span><span class="n">bluebird</span><span class="o">/</span><span class="n">twitcher</span><span class="o">.</span><span class="n">git</span>
 <span class="n">cd</span> <span class="n">twitcher</span>
@@ -493,6 +497,52 @@ git checkout develop
 <p>Then go to <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a> in your browser to see the Twitcher interface with no scenario or sectors added.</p>
 <p>Twitcher assumes that BlueSky and BlueBird are already running on the same machine.</p>
 <p><img alt="Twitcher blank interface" src="../_images/twitcher_blank_interface.png" /></p>
+</div>
+<div class="section" id="upload-scenarios-and-sectors">
+<h3>2.3 Upload Scenarios and Sectors<a class="headerlink" href="#upload-scenarios-and-sectors" title="Permalink to this headline">¶</a></h3>
+<p>Sectors and scenarios can be introduced to the simulation either via Twitcher or via the command line using pydodo</p>
+<div class="section" id="via-twitcher">
+<h4>2.3.1 Via Twitcher<a class="headerlink" href="#via-twitcher" title="Permalink to this headline">¶</a></h4>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">SECTOR</span> <span class="pre">AND</span> <span class="pre">SCENARIO</span> <span class="pre">UPLOAD</span></code> section shown at the bottom of the Twitcher interface, users can upload scenario description files (<code class="docutils literal notranslate"><span class="pre">json</span></code> format) and sector description file (<code class="docutils literal notranslate"><span class="pre">geojson</span></code> format) into the simulation. Information on generating these files is given in the <a class="reference external" href="#aviary.md">aviary</a> pages of this document.
+<img alt="Twitcher test scenario and sector loaded" src="../_images/twitcher_test_sector_interface.png" />
+In this example an ‘I’ shaped sector shown in white has been defined. The sector contains five waypoints, ‘SPIRT’, ‘AIR’, ‘WATER’, ‘EARTH’, and ‘FIYRE’.
+The scenario contains two aircraft, with IDs of ‘VJ159’ and ‘VJ405’, they are travelling at different headings and with different altitudes.</p>
+<p>Once finished with Twitcher, the docker container can be shut down via</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose down
+</pre></div>
+</div>
+</div>
+<div class="section" id="via-the-command-line">
+<h4>2.3.2 Via the command line<a class="headerlink" href="#via-the-command-line" title="Permalink to this headline">¶</a></h4>
+<p>Once pydodo is installed, the sector and scenario definitions can be applied to the simulation using pydodo. In a directory where you have both the test-sector.geojson file and the test-scenario.json file, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python
+&gt;&gt;&gt; import pydodo
+&gt;&gt;&gt; pydodo.upload_sector<span class="o">(</span><span class="s1">&#39;test-sector.geojson&#39;</span>,<span class="s1">&#39;test-sector&#39;</span><span class="o">)</span>
+True
+&gt;&gt;&gt; pydodo.upload_scenario<span class="o">(</span><span class="s1">&#39;test-scenario.json&#39;</span>,<span class="s1">&#39;test-scenario&#39;</span><span class="o">)</span>
+True
+&gt;&gt;&gt; pydodo.all_positions<span class="o">()</span>
+      aircraft_type  cleared_flight_level  current_flight_level  ground_speed  heading   latitude  longitude  requested_flight_level  vertical_speed
+VJ159          A346                 <span class="m">40000</span>          <span class="m">36089</span>.238845           <span class="m">215</span>        <span class="m">0</span>  <span class="m">49</span>.899841    -0.1275                   <span class="m">40000</span>               <span class="m">0</span>
+VJ405          B77W                 <span class="m">20000</span>          <span class="m">20000</span>.000000           <span class="m">187</span>      <span class="m">180</span>  <span class="m">53</span>.152652    -0.1275                   <span class="m">40000</span>               <span class="m">0</span>
+</pre></div>
+</div>
+<p>And so on, the list of pydodo commands previously mentioned can be used to fully explore the simulation.</p>
+<p>As with the Twitcher interface, we have uploaded two aircraft, with IDs of ‘VJ159’ and ‘VJ405’, we can see their longitude, latitude and headings along with other useful information.</p>
+</div>
+</div>
+<div class="section" id="aviary">
+<h3>2.4 Aviary<a class="headerlink" href="#aviary" title="Permalink to this headline">¶</a></h3>
+<p>To install aviary locally, in a third terminal clone the development repo</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:project-bluebird/aviary.git
+git checkout develop
+</pre></div>
+</div>
+<p>Install the development branch (or any other appropriate branch)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install .
+</pre></div>
+</div>
+<p>Note this step is optional</p>
 </div>
 </div>
 </div>

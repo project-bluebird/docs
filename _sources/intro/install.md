@@ -107,7 +107,7 @@ This will shutdown the running instances of Twitcher, BlueBird and BlueSky.
  ## Running from Source
 
  #### 2.1 BlueBird and BlueSky
-To run Bluebird with BlueSky from source, first clone both repos. You will need Python > 3.7 to run this.
+To run Bluebird with BlueSky from source, first clone both repos. You will need Python>=3.7 to run this.
 
 ```bash
 git clone https://github.com/project-bluebird/bluesky.git
@@ -154,21 +154,7 @@ python ./run.py [--sim-host=<address>] [--sim-mode=<mode>] [--reset-sim] [--log-
 - If passed, `--reset-sim` will reset the simulation on connection
 - If passed, `--sim-mode` will start the simulation in a specific [mode](docs/SimulatorModes.md).
 
-
-#### 2.2 Aviary
-To install aviary locally, in a third terminal clone the development repo
-```bash
-git clone git@github.com:project-bluebird/aviary.git
-git checkout develop
-```
-Install the development branch (or any other appropriate branch)
-
-```bash
-pip install .
-```
-Note this is not a necessary step if you are running simple scenarios
-
-#### 2.3 Twitcher
+#### 2.2 Twitcher
  
 The recommended way to run Twitcher is still via a docker container. Simply clone the [repository](https://github.com/project-bluebird/twitcher) and build the container.
 
@@ -183,4 +169,51 @@ Then go to [http://localhost:8080/](http://localhost:8080/) in your browser to s
 Twitcher assumes that BlueSky and BlueBird are already running on the same machine.
 
 ![Twitcher blank interface](../images/twitcher_blank_interface.png)
+
+
+#### 2.3 Upload Scenarios and Sectors
+Sectors and scenarios can be introduced to the simulation either via Twitcher or via the command line using pydodo
+##### 2.3.1 Via Twitcher
+Using the `SECTOR AND SCENARIO UPLOAD` section shown at the bottom of the Twitcher interface, users can upload scenario description files (`json` format) and sector description file (`geojson` format) into the simulation. Information on generating these files is given in the [aviary](#aviary.md) pages of this document. 
+![Twitcher test scenario and sector loaded](../images/twitcher_test_sector_interface.png)
+In this example an 'I' shaped sector shown in white has been defined. The sector contains five waypoints, 'SPIRT', 'AIR', 'WATER', 'EARTH', and 'FIYRE'.
+The scenario contains two aircraft, with IDs of 'VJ159' and 'VJ405', they are travelling at different headings and with different altitudes.
+
+Once finished with Twitcher, the docker container can be shut down via
+
+```bash
+docker-compose down
+```
+
+##### 2.3.2 Via the command line
+Once pydodo is installed, the sector and scenario definitions can be applied to the simulation using pydodo. In a directory where you have both the test-sector.geojson file and the test-scenario.json file, run:
+```bash
+python
+>>> import pydodo
+>>> pydodo.upload_sector('test-sector.geojson','test-sector')
+True
+>>> pydodo.upload_scenario('test-scenario.json','test-scenario')
+True
+>>> pydodo.all_positions()
+      aircraft_type  cleared_flight_level  current_flight_level  ground_speed  heading   latitude  longitude  requested_flight_level  vertical_speed
+VJ159          A346                 40000          36089.238845           215        0  49.899841    -0.1275                   40000               0
+VJ405          B77W                 20000          20000.000000           187      180  53.152652    -0.1275                   40000               0
+```
+And so on, the list of pydodo commands previously mentioned can be used to fully explore the simulation.
+
+As with the Twitcher interface, we have uploaded two aircraft, with IDs of 'VJ159' and 'VJ405', we can see their longitude, latitude and headings along with other useful information.
+
+#### 2.4 Aviary
+To install aviary locally, in a third terminal clone the development repo
+```bash
+git clone git@github.com:project-bluebird/aviary.git
+git checkout develop
+```
+Install the development branch (or any other appropriate branch)
+
+```bash
+pip install .
+```
+Note this step is optional
+
 
