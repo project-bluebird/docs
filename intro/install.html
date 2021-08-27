@@ -363,12 +363,21 @@ or</p></li>
 <p>In the first instance the required enviroment can be initiated using a Docker container and a repository set up in the first phase of the project. This repository is known as Simugh.</p>
 <div class="section" id="clone-the-simurgh-repository">
 <h3>1.1 Clone the Simurgh repository<a class="headerlink" href="#clone-the-simurgh-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/alan-turing-institute/simurgh.git
+</pre></div>
+</div>
 <p>All commands described in the subsequent sections are meant to be run from inside the repo. After cloning the repo make sure to:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> simurgh
+</pre></div>
+</div>
 </div>
 <div class="section" id="run-bluesky-bluebird-twicher-with-docker">
 <h3>1.2 Run BlueSky, BlueBird, &amp; Twicher with Docker<a class="headerlink" href="#run-bluesky-bluebird-twicher-with-docker" title="Permalink to this headline">¶</a></h3>
 <p>Make sure you have <a class="reference external" href="https://www.docker.com/get-started">Docker</a> installed.</p>
 <p>Once you have Docker installed and have cloned this repo then run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose up -d
+</pre></div>
+</div>
 <p>This pulls down the pre-built images from DockerHub and
 starts each container in the right order.</p>
 <p>Then all one needs to do is go to
@@ -385,8 +394,7 @@ download and extract all the layers involved.</p>
 pip install dodo/Pydodo
 </pre></div>
 </div>
-<p>If BlueSky and BlueBird are running (see previous step), then one can communicate with the simulator (via
-BlueBird) using PyDodo:</p>
+<p>If BlueSky and BlueBird are running (see previous step), then one can communicate with the simulator (via BlueBird) using PyDodo:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pydodo</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pydodo</span><span class="o">.</span><span class="n">reset_simulation</span><span class="p">()</span>

@@ -18,13 +18,13 @@ In the first instance the required enviroment can be initiated using a Docker co
 
 #### 1.1 Clone the Simurgh repository
 
-```{bash}
+```bash
 git clone https://github.com/alan-turing-institute/simurgh.git
 ```
 
 All commands described in the subsequent sections are meant to be run from inside the repo. After cloning the repo make sure to:
 
-```{bash}
+```bash
 cd simurgh
 ```
 
@@ -34,7 +34,7 @@ Make sure you have [Docker](https://www.docker.com/get-started) installed.
 
 Once you have Docker installed and have cloned this repo then run:
 
-```{bash}
+```bash
 docker-compose up -d
 ```
 
@@ -62,8 +62,7 @@ git clone https://github.com/alan-turing-institute/dodo.git
 pip install dodo/Pydodo
 ```
 
-If BlueSky and BlueBird are running (see previous step), then one can communicate with the simulator (via
-BlueBird) using PyDodo:
+If BlueSky and BlueBird are running (see previous step), then one can communicate with the simulator (via BlueBird) using PyDodo:
 
 ```python
 >>> import pydodo
