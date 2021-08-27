@@ -218,4 +218,4 @@ pip install .
 ```
 Note this step is optional
 
-
+Full details of running an airspace simulation are given in the [running an airspace simulation](../guides/digital_twin.ipynb) section.
