@@ -42,7 +42,7 @@ This pulls down the pre-built images from DockerHub and
 starts each container in the right order.
 
 Then all one needs to do is go to
-`http://localhost:8080` where Twitcher will be running.
+[http://localhost:8080](http://localhost:8080) where Twitcher will be running.
 
 
 _Note_: If this is the first time running this command, it may take some time to
@@ -51,7 +51,7 @@ download and extract all the layers involved.
 Users can communicate with the simulation via Twitcher exclusively if they wish to, or can also communicate with the simulation via PyDodo
 
 
-#### 1.3 Install PyDodo
+#### 1.3 Install and Run PyDodo
 
 PyDodo is the Python implementation of Dodo.
 
@@ -62,8 +62,11 @@ git clone https://github.com/alan-turing-institute/dodo.git
 pip install dodo/Pydodo
 ```
 
-If BlueSky and BlueBird are running (see previous step), then one can communicate with the simulator (via BlueBird) using PyDodo:
+If BlueSky and BlueBird are running (see previous step), then one can communicate with the simulator (via BlueBird) using pydodo.
 
+```bash
+python
+```
 ```python
 >>> import pydodo
 >>>
@@ -74,27 +77,31 @@ True
 
 Success!
 
-See the Dodo [specification document](https://github.com/alan-turing-institute/dodo/blob/master/Specification.md) for a detailed overview of the supported commands.
+See the Dodo [specification document](https://github.com/alan-turing-institute/dodo/blob/master/Specification.md) for a detailed overview of the supported commands, and see below for example usage.
 
 #### 1.4 Example usage
 
-The [example notebook TODO_LINK]() shows how to interact with the simulation using PyDodo.
+The example notebook in the Simurgh directory `simurgh/examples` shows how to interact with the simulation using PyDodo.
 
-To run the example, launch the notebook using the command below (this will automatically open the notebook in your browser):
+To run the example, launch the notebook using the command below (this will automatically open the notebook in your browser assuming you have jupyter lab installed):
 
- ```{bash}
- jupyter lab <path-to-example>.ipynb
+ ```bash
+ cd examples
+ jupyter lab Example-pipeline.ipynb
  ```
 
+You should see something like this. 
+![Top of example pipeline notebook](../images/example_pipeline_landing_image.png)
+As Docker has already been launched, step 1.1 can be omitted, and the instructions can be followed from `1.2 Import pydodo` onwards. A completed example of this workflow is given in section REF=EXAMPLE.IPYNB
 
 
-Once you are finished with the simulation, Docker can be closed via:
+Once you are finished with the simulation, the notebook can be shut down and Docker can be closed via:
 
 ```
 docker-compose down
 ```
 
-This will shutdown the running instances.
+This will shutdown the running instances of Twitcher, BlueBird and BlueSky.
 
 
  ## Running from Source

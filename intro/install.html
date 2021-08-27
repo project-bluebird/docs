@@ -295,8 +295,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-pydodo">
-     1.3 Install PyDodo
+    <a class="reference internal nav-link" href="#install-and-run-pydodo">
+     1.3 Install and Run PyDodo
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -381,20 +381,23 @@ or</p></li>
 <p>This pulls down the pre-built images from DockerHub and
 starts each container in the right order.</p>
 <p>Then all one needs to do is go to
-<code class="docutils literal notranslate"><span class="pre">http://localhost:8080</span></code> where Twitcher will be running.</p>
+<a class="reference external" href="http://localhost:8080">http://localhost:8080</a> where Twitcher will be running.</p>
 <p><em>Note</em>: If this is the first time running this command, it may take some time to
 download and extract all the layers involved.</p>
 <p>Users can communicate with the simulation via Twitcher exclusively if they wish to, or can also communicate with the simulation via PyDodo</p>
 </div>
-<div class="section" id="install-pydodo">
-<h3>1.3 Install PyDodo<a class="headerlink" href="#install-pydodo" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="install-and-run-pydodo">
+<h3>1.3 Install and Run PyDodo<a class="headerlink" href="#install-and-run-pydodo" title="Permalink to this headline">¶</a></h3>
 <p>PyDodo is the Python implementation of Dodo.</p>
 <p>To install, open a terminal window:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/alan-turing-institute/dodo.git
 pip install dodo/Pydodo
 </pre></div>
 </div>
-<p>If BlueSky and BlueBird are running (see previous step), then one can communicate with the simulator (via BlueBird) using PyDodo:</p>
+<p>If BlueSky and BlueBird are running (see previous step), then one can communicate with the simulator (via BlueBird) using pydodo.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python
+</pre></div>
+</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pydodo</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pydodo</span><span class="o">.</span><span class="n">reset_simulation</span><span class="p">()</span>
@@ -403,17 +406,24 @@ pip install dodo/Pydodo
 </pre></div>
 </div>
 <p>Success!</p>
-<p>See the Dodo <a class="reference external" href="https://github.com/alan-turing-institute/dodo/blob/master/Specification.md">specification document</a> for a detailed overview of the supported commands.</p>
+<p>See the Dodo <a class="reference external" href="https://github.com/alan-turing-institute/dodo/blob/master/Specification.md">specification document</a> for a detailed overview of the supported commands, and see below for example usage.</p>
 </div>
 <div class="section" id="example-usage">
 <h3>1.4 Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="../intro.html"><span class="doc std std-doc">example notebook TODO_LINK</span></a> shows how to interact with the simulation using PyDodo.</p>
-<p>To run the example, launch the notebook using the command below (this will automatically open the notebook in your browser):</p>
-<p>Once you are finished with the simulation, Docker can be closed via:</p>
+<p>The example notebook in the Simurgh directory <code class="docutils literal notranslate"><span class="pre">simurgh/examples</span></code> shows how to interact with the simulation using PyDodo.</p>
+<p>To run the example, launch the notebook using the command below (this will automatically open the notebook in your browser assuming you have jupyter lab installed):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> examples
+jupyter lab Example-pipeline.ipynb
+</pre></div>
+</div>
+<p>You should see something like this.
+<img alt="Top of example pipeline notebook" src="../_images/example_pipeline_landing_image.png" />
+As Docker has already been launched, step 1.1 can be omitted, and the instructions can be followed from <code class="docutils literal notranslate"><span class="pre">1.2</span> <span class="pre">Import</span> <span class="pre">pydodo</span></code> onwards. A completed example of this workflow is given in section REF=EXAMPLE.IPYNB</p>
+<p>Once you are finished with the simulation, the notebook can be shut down and Docker can be closed via:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span>
 </pre></div>
 </div>
-<p>This will shutdown the running instances.</p>
+<p>This will shutdown the running instances of Twitcher, BlueBird and BlueSky.</p>
 </div>
 </div>
 <div class="section" id="running-from-source">
