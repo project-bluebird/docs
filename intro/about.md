@@ -17,6 +17,10 @@ Citation info: J. M. Hoekstra and J. Ellerbroek, [BlueSky ATC Simulator Project:
 ## Twitcher
 [Twitcher](https://github.com/project-bluebird/twitcher) is a front-end for BlueBird for monitoring the simulation via a browser. Twitcher is built using .NET Core and Fable, then compiled to Javascript.
 
+## Dodo
+[![Build Status](https://travis-ci.com/alan-turing-institute/dodo.svg?branch=master)](https://travis-ci.com/alan-turing-institute/dodo)
+[Dodo](https://github.com/project-bluebird/dodo) is a package that provides a scaffold for building air traffic control agents. The package us written in Python (PyDodo) and R (rdodo). For an overview of all functionality, please read the [specification](https://github.com/project-bluebird/dodo/blob/master/Specification.md) document. Commands linked to specific ATCO commands are given in the [example-usage]() page.
+
 ## Aviary
 [![Build Status](https://travis-ci.com/project-bluebird/aviary.svg?branch=develop)](https://travis-ci.com/alan-turing-institute/aviary)
 
